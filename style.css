@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+/* setting carousel widht and backgroud shadow */
+#carouselExampleCaptions {
+    width: 60vw;   
+    margin: 30px auto;
+    box-shadow: 0px 0px 10px 10px gray;
+    border-radius: 20px;
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* setting image border radius */
+.carousel-item img{
+    border-radius: 20px;
+}
+
+/* css code for animation of pop up page */
+
+#poplog {
+  opacity: 0;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 25px;
+  position: sticky;
+  height: 100vh;
+  top: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 3s;
+  z-index: 2;
+}
+
+
+
+#log-sign {
+  position: absolute;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+  color: white;
+  min-width: 240px;
+  max-width: 300px;
+  margin: 30px auto;
+  height: 450px;
+  padding: 10px;
+  background-color: rgb(15, 15, 191);
+  backdrop-filter: blur(30px);
+  text-align: left;
+  align-items: center;
+  position: sticky;
+  animation: moveUp 2s ease-in-out forwards 3s;
+  z-index: 3;
+  border-radius: 20px;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#log_acc_but,
+#crt_acc_but {
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(15, 15, 191);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .4);
+  color: white;
+  font-weight: bold;
+  
+}
