@@ -59,7 +59,7 @@
 </head>
 <body>
     <div id="signup">
-        <form action="">
+        <form action="" id="signed">
             <p style="text-align: end; padding:10px 10px ; color: lightblue;">x</p>
             <!-- <h1>XXXXXXXXXXX</h1> -->
             <h3 style="color: rgb(7, 2, 1);">sign-up / create account</h3>
@@ -68,9 +68,21 @@
             <label for="pass"></label>
             <input type="password" id="pass" placeholder="password"><br>
             <input type="submit" name="" value="sign-up" id="submit"
-                style="  width: 100px; height: 35px; font-weight: bolder ; color: rgb(4, 98, 132); ">
+                style="  width: 100px; height: 35px; font-weight: bolder ; color: rgb(4, 98, 132); "><br>
                 <button type="button" id="have_account">Already have an account ?</button>
         </form>
     </div>
+    <script>
+       
+        let signed = document.getElementById("signed")
+        signed.addEventListener("submit",()=>{
+            location.assign("./log-succ_page.html")
+        })
+        let have_account = document.getElementById("have_account")
+        have_account.addEventListener("click",()=>{
+            location.assign("./log-in_page.html")
+        })
+
+    </script>
 </body>
 </html>

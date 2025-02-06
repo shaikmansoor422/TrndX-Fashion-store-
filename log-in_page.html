@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>  #signin {
+    <style>  
+    form{
+        text-align: center;
+    }
+    #signin {
         min-width: 280px;
         max-width: 40%;
         flex: 1 1 auto;
@@ -55,7 +59,7 @@
 </head>
 <body>
     <div id="signin">
-        <form action="">
+        <form action="" id="logged">
             <p style="text-align: end; padding:10px 10px ; color: lightblue;">x</p>
             <!-- <h1>XXXXXXXXXXX</h1> -->
             <h3>log-in</h3>
@@ -64,10 +68,21 @@
             <label for="pass"></label>
             <input type="password" id="pass" placeholder="password" readonly><br>
             <input type="submit" name="" value="log-in" id="submit"
-                style="width: 100px; height: 35px; font-weight: bolder ; color: rgb(4, 98, 132);">
-                <button type="button" id="create_account">Create account?</button>
+                style="width: 100px; height: 35px; font-weight: bolder ; color: rgb(4, 98, 132);"><br>
+                <button type="button" id="crt_acc">Create account?</button>
                 
         </form>
     </div>
+    <script>
+        let logged = document.getElementById("logged")
+        logged.addEventListener("submit",(event)=>{
+            event.preventDefault()
+            location.assign("./log-succ_page.html")
+        })
+        let crt_acc = document.getElementById("crt_acc")
+        crt_acc.addEventListener("click",()=>{
+            location.assign("./sign-up_page.html")
+        })
+    </script>
 </body>
 </html>

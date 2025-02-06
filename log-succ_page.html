@@ -84,8 +84,23 @@
     <div id="log_succes">
         <h3>Login Successful &#127881;</h3>
         <div class="loader"></div>
-        <p id="time-interval" style="color: rgb(1, 24, 30);;">wait a second,<br>we will navigate you to home page</p>
+        <p id="time_interval" style="color: rgb(1, 24, 30);;">wait a second,<br>we will navigate you to home page</p>
     </div>
+    <script>
+        let time = 5
+        function timing(){
+            let change =setInterval(()=>{
+                time--
+                if (time == 0){
+                    location.assign("./index.html")
+                    sessionStorage.setItem("pop_hiding","true")
+                    clearInterval(change)
+                }
+            },1000)  
+        }
+        timing()
+
+    </script>
     
 </body>
 </html>

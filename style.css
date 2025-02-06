@@ -1,14 +1,19 @@
 * {
   box-sizing: border-box;
 }
-
+@media (min-width:280px) and (max-width:740px){
+  #carouselExampleCaptions {
+    width: 95vw !important;   
+    
+  }
+}
 /* setting carousel widht and backgroud shadow */
 #carouselExampleCaptions {
-    width: 60vw;   
-    margin: 30px auto;
+    width: 65vw;   
+    margin: 10px auto;
     box-shadow: 0px 0px 10px 10px gray;
     border-radius: 20px;
-    position:fixed;
+    position:absolute;
     left: 50%;
     transform: translateX(-50%);
   }
