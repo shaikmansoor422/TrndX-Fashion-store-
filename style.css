@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-@media (min-width:280px) and (max-width:740px){
+@media (max-width:740px){
   #carouselExampleCaptions {
     width: 95vw !important;   
     
