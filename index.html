@@ -14,49 +14,21 @@
 <link rel="stylesheet" href="./style.css">
  
 <style>
-  /* styling for the navbar */
-  @media (max-width:740px){
-    .d-flex{
-      font-size: 12px;
-    width: 180px;
-    }
-  }
-  .navbar-brand{
-    padding: 0px;
-    font-size: 30px;
-    display: inline-block; /* Ensures it behaves correctly */
-            transform: translateX(-100%);
-            opacity: 1; /* Ensure visibility */
-            animation: slideIn 3.5s ease-out forwards;
-  }
-  .d-flex{
-    height:27px;
-  }
-  .btn{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   border: none;
-   padding: 0px;
-  }
-  #searchsvg{
-    height: 25px;
-    width: 25px;
-  }
- 
-  @keyframes slideIn {
-            from{
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-             to{
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
 
 
+#sliding_products{
+  height: 400px;
+  min-width: 250px;
+  max-width: 80%;
+  flex: 1 1 auto;
+  margin: auto;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar{
+  overflow: hidden;
+}
 </style>
 </head>
 
@@ -159,6 +131,10 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <!-- sliding products -->
+  <div id="sliding_products" style="display:flex; overflow-x: auto; gap: 30px; padding: 20px;">
+
+  </div>
     <!-- main login pop up -->
     <div id="poplog">
       <div id="log-sign">
@@ -172,6 +148,8 @@
         <button type="button" id="log_acc_but">Log-in</button>
       </div>
     </div>
+    <!-- sliding products -->
+ 
     <script>
       let popup = document.getElementById("poplog")
       let create_account = document.getElementById("crt_acc_but")
@@ -187,6 +165,44 @@
           popup.style.display = "none"
         }
       }
+
+      // sliding products data
+      sliding_products = document.getElementById("sliding_products")
+      fetch("https://67a5d0e9c0ac39787a1f8c4d.mockapi.io/sliding_products/products_data")
+      .then((response)=>{
+       return response.json()
+      })
+      .then((data)=>{
+        for( let product of data){
+          let cards = document.createElement("div")
+          cards.style.height = "350px"
+          cards.style.width = "250px "
+          cards.style.flex = "0 0 auto"
+          cards.style.boxShadow = "0px 0px 10px 5px grey"
+          cards.style.borderRadius = "20px"
+
+
+          let p_name = document.createElement("p")
+          p_name.innerHTML = product.product_name
+          p_name.style.fontWeight = "bold"
+          p_name.style.padding = "5px 0px 0px 10px"
+          let p_image = document.createElement("img")
+          p_image.style.height = "170px"
+          p_image.style.width = "110px"
+          p_image.style.margin = "0px"
+           p_image.style.marginLeft = "70px"
+          //  p_image.style.boxShadow = "0px 0px 15px 10px wheat"
+          
+
+          p_image.src = product.image_url
+
+          // cards.innerHTML = product.product_price
+          // cards.innerHTML = product.product_image_url
+          sliding_products.append(cards)
+          cards.append(p_name,p_image)
+        }
+
+      })
     </script>
 
 </body>
