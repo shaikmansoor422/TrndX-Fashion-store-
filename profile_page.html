@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    #profile_container {
+        height: 500px;
+        width: 280px;
+        position: relative;
+        overflow: hidden;
+        z-index: -4;
+        box-shadow: 0px 0px 15px 5px;
+        border-radius: 20px;
+
+    }
+    #my_pf{
+        padding: 0px 10px;
+        font-weight: bolder;
+        font-size: 25px;
+        animation: fall 2s;
+        color: antiquewhite;
+        font-family: 'Brush Script MT', cursive;
+        margin: 8px auto;
+    }
+
+
+    #circle_1 {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        position: absolute;
+        right: 35%;
+        top: -10%;
+        background:linear-gradient(to right,rgb(198, 7, 96)20%, blue);
+        z-index: -1;
+        animation: moveRight 3s;
+    }
+
+    #circle_2 {
+        background:linear-gradient(to right,blue, rgb(198, 7, 96) 70%);
+        height: 250px;
+        width: 250px;
+        border-radius: 150px;
+        position: absolute;
+        right: -30%;
+        top: -10%;
+        animation: moveLeft 4s;
+        z-index: -2;
+
+    }
+   #d_p{
+    box-shadow: 0px 0px 10px 5px black;
+    height: 130px;
+    width: 130px;
+    margin: auto;
+    border-radius: 85px;
+    background: url("./images/main_profile.png") no-repeat center ;
+    background-size: cover;
+
+   }
+   #guest{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+   }
+    @keyframes moveRight {
+        0% {
+            transform: translateX(-100px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes moveLeft {
+        0% {
+            transform: translateX(100px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @keyframes fall {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+
+#user_name,#fav, #p_no,#wallet {
+    margin: 10px;
+    box-shadow: 0px 0px 4px 1px;
+    padding: 7px;
+    border-radius: 4px;
+}
+#log_out{
+    border: none;
+    border-top: 0.1px solid black;
+    margin: auto;
+    margin-top: 63px;
+    text-align: center;
+    font-size: 18px;
+    padding: 8px;
+    width: 100%;
+    background: linear-gradient(to right,rgb(198, 7, 96)20%, blue);
+
+}
+#edit{
+    position: fixed;
+    top: 20px;
+    transform: translateX(240px);
+    
+}
+svg{
+    height: 20px;
+}
+</style>
+
+<body>
+    <div id="profile_container">
+        <div id="circle_1"></div>
+        <div id="circle_2"></div>
+        <p id="my_pf">My Profile</p>
+        <div id="edit"><svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>edit_fill [#fcfcfc]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-59.000000, -400.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M3,260 L24,260 L24,258.010742 L3,258.010742 L3,260 Z M13.3341,254.032226 L9.3,254.032226 L9.3,249.950269 L19.63095,240 L24,244.115775 L13.3341,254.032226 Z" id="edit_fill-[#fcfcfc]"> </path> </g> </g> </g> </g></svg></div>
+        <div id="d_p"><img src="" alt=""></div>
+        <p id="guest">Guest</p>
+        <div id="user_name">Username </div>
+        <div id="fav">&#10084;&#65039; Favourites
+        </div>
+        <div id="p_no">9494022265</div>
+        <div id="wallet">Wallet : 0</div>
+        <div id="log_out"><a href="" style="color: white;">logout</a></div>
+    </div>
+</body>
+
+</html>

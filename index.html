@@ -10,49 +10,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    
-<link rel="stylesheet" href="./style.css">
- 
-<style>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    #sliding_products {
+      height: 400px;
+      width: 90%;
+      margin: auto;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      overflow: hidden;
+    }
 
 
-#sliding_products{
-  height: 400px;
-  width: 90%;
-  margin: auto;
-  scroll-behavior: smooth;
-  overflow: hidden;
-}
+    #slide_heading {
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      font-family: 'Garamond', serif;
+      animation: wave 5s infinite;
+      color: black;
 
-::-webkit-scrollbar{
-  overflow: hidden;
-}
+    }
 
+    @keyframes wave {
 
-#slide_heading{
-  text-align: center;
-  font-weight: bold;
-  font-size: 30px;
-  font-family: 'Garamond', serif;
-  animation: wave 5s infinite;
-  color: black;
-  
-}
-
-@keyframes wave {
-    0%, 100% {
+      0%,
+      100% {
         transform: translateY(0);
-    }
-    50% {
+      }
+
+      50% {
         transform: translateY(-20px);
+      }
     }
-}
-
-
-
-
-  
-</style>
+  </style>
 </head>
 
 <body>
@@ -62,14 +58,23 @@
       <a class="navbar-brand">XXXXX</a>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><svg id="searchsvg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z" fill="#000000"></path> </g></svg></button>
+        <button class="btn btn-outline-success" type="submit"><svg id="searchsvg" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z"
+                fill="#000000"></path>
+            </g>
+          </svg></button>
       </form>
     </div>
   </nav>
 
   <!-- Carousel -->
-  <div id="carouselExampleCaptions" class="carousel slide w-80  h-70" data-bs-ride="carousel" >
-    <div class="carousel-indicators" >
+  <div id="carouselExampleCaptions" class="carousel slide w-80  h-70" data-bs-ride="carousel">
+    <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -87,59 +92,60 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"
         aria-label="Slide 8"></button>
     </div>
-    <div class="carousel-inner " >
+    <div class="carousel-inner ">
       <div class="carousel-item active" data-bs-interval="2000">
-        <img src="./images/couresel-1.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./images/couresel-1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./images/c-2.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./images/c-2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./images/c-3.jpg" class="d-block w-100" alt="..." style="object-fit: cover;height: 100%; width: 100%; border-radius: 20px;">
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./images/c-3.jpg" class="d-block w-100" alt="..."
+          style="object-fit: cover;height: 100%; width: 100%; border-radius: 20px;">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./images/c-4.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block"  >
+        <img src="./images/c-4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./images/c-5.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./images/c-5.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="..."  >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="..." >
-        <div class="carousel-caption d-none d-md-block" >
+        <img src="./gratisography-cool-cat-800x525.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
@@ -155,50 +161,50 @@
     </button>
   </div>
   <!-- premium products for life showing text -->
-  <p id="slide_heading" ><i>Handpicked Premium Products for You</i> &#128150;</p>
+  <p id="slide_heading"><i>Handpicked Premium Products for You</i> &#128150;</p>
   <!-- sliding products -->
   <div id="sliding_products" style="display:flex; overflow-x: auto; gap: 30px; padding: 15px;">
 
   </div>
-    <!-- main login pop up -->
-    <div id="poplog">
-      <div id="log-sign">
-        <h2>Hello Fashion Enthusiast!</h2>
-        <p>"Welcome to [Your Brand Name], where style meets elegance. Explore our latest collections and find your
-          perfect look today!"</p>
-        <br>
-        <p style="font-size: 11px;">Don't have an account ?</p>
-        <button type="button" id="crt_acc_but">Create account</button><br><br>
-        <p style="font-size: 11px;">Already have an account ?</p>
-        <button type="button" id="log_acc_but">Log-in</button>
-      </div>
+  <!-- main login pop up -->
+  <div id="poplog">
+    <div id="log-sign">
+      <h2>Hello Fashion Enthusiast!</h2>
+      <p>"Welcome to [Your Brand Name], where style meets elegance. Explore our latest collections and find your
+        perfect look today!"</p>
+      <br>
+      <p style="font-size: 11px;">Don't have an account ?</p>
+      <button type="button" id="crt_acc_but">Create account</button><br><br>
+      <p style="font-size: 11px;">Already have an account ?</p>
+      <button type="button" id="log_acc_but">Log-in</button>
     </div>
-  
- 
-    <script>
-      let popup = document.getElementById("poplog")
-      let create_account = document.getElementById("crt_acc_but")
-      let login_account = document.getElementById("log_acc_but")
-      create_account.addEventListener("click",()=>{
-        location.assign("./sign-up_page.html")
-      })
-      login_account.addEventListener("click",()=>{
-        location.assign("./log-in_page.html")
-      })
-      window.onload = ()=>{
-        if (sessionStorage.getItem("pop_hiding") === "true"){
-          popup.style.display = "none"
-        }
-      }
+  </div>
 
-      // sliding products data
-      sliding_products = document.getElementById("sliding_products")
-      fetch("https://67a5d0e9c0ac39787a1f8c4d.mockapi.io/sliding_products/products_data")
-      .then((response)=>{
-       return response.json()
+
+  <script>
+    let popup = document.getElementById("poplog")
+    let create_account = document.getElementById("crt_acc_but")
+    let login_account = document.getElementById("log_acc_but")
+    create_account.addEventListener("click", () => {
+      location.assign("./sign-up_page.html")
+    })
+    login_account.addEventListener("click", () => {
+      location.assign("./log-in_page.html")
+    })
+    window.onload = () => {
+      if (sessionStorage.getItem("pop_hiding") === "true") {
+        popup.style.display = "none"
+      }
+    }
+    // mockAPI fetching.....
+    // sliding products data
+    sliding_products = document.getElementById("sliding_products")
+    fetch("https://67a5d0e9c0ac39787a1f8c4d.mockapi.io/sliding_products/products_data")
+      .then((response) => {
+        return response.json()
       })
-      .then((data)=>{
-        for( let product of data){
+      .then((data) => {
+        for (let product of data) {
           let cards = document.createElement("div")
           cards.style.height = "350px"
           cards.style.width = "230px "
@@ -224,7 +230,7 @@
           p_brand.innerHTML = product.brand
           p_brand.style.padding = "5px 0px 0px 10px"
           p_brand.innerHTML = `Brand : ${product.brand}`
- 
+
           let p_price = document.createElement("p")
           p_price.innerHTML = product.price
           p_price.style.textAlign = "center"
@@ -238,11 +244,11 @@
           p_size.style.fontSize = "13px"
 
           sliding_products.append(cards)
-          cards.append(p_name,p_image,p_brand,p_price,p_size)
+          cards.append(p_name, p_image, p_brand, p_price, p_size)
         }
 
       })
-    </script>
+  </script>
 
 </body>
 
