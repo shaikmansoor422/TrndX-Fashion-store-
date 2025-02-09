@@ -14,6 +14,16 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #svg_div_container {
+      display: flex;
+      column-gap: 10px;
+    }
+
     #sliding_products {
       height: 400px;
       width: 90%;
@@ -48,6 +58,20 @@
         transform: translateY(-20px);
       }
     }
+
+    
+    #profile_div,
+    #heart_div,
+    #cart_div {
+      margin-top: -5px;
+    }
+
+    #profile_svg,
+    #cart_svg,
+    #fav_heart {
+      height: 20px;
+      width: 25px;
+    }
   </style>
 </head>
 
@@ -56,9 +80,9 @@
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand">XXXXX</a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><svg id="searchsvg" viewBox="0 0 24 24" fill="none"
+      <!-- <form class="d-flex" role="search"> -->
+      <!-- <input id="search_input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+      <!-- <button id="search_svg" class="btn btn-outline-success" type="submit"><svg id="searchsvg" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -67,11 +91,67 @@
                 d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z"
                 fill="#000000"></path>
             </g>
-          </svg></button>
-      </form>
+          </svg></button> -->
+      <!-- </form> -->
+      <div id="svg_div_container">
+        <div id="heart_div" class="ml-auto"><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z"
+                fill="#fc0303"></path>
+            </g>
+          </svg></div>
+        <div id="cart_div"><svg id="cart_svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M21 5L19 12H7.37671M20 16H8L6 3H3M11.5 7L13.5 9M13.5 9L15.5 7M13.5 9V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg></div>
+
+
+        <div id="profile_div"><svg id="profile_svg" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>profile_round [#1342]</title>
+              <desc>Created with Sketch.</desc>
+              <defs> </defs>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -2159.000000)" fill="#000000">
+                  <g id="icons" transform="translate(56.000000, 160.000000)">
+                    <path
+                      d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598"
+                      id="profile_round-[#1342]"> </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg></div>
+      </div>
     </div>
   </nav>
-
+<!-- profile of the user -->
+<div id="profile_container">
+  <div id="circle_1"></div>
+  <div id="circle_2"></div>
+  <p id="my_pf">My Profile</p>
+  <div id="edit"><svg id="edit_svg" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>edit_fill [#fcfcfc]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-59.000000, -400.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M3,260 L24,260 L24,258.010742 L3,258.010742 L3,260 Z M13.3341,254.032226 L9.3,254.032226 L9.3,249.950269 L19.63095,240 L24,244.115775 L13.3341,254.032226 Z" id="edit_fill-[#fcfcfc]"> </path> </g> </g> </g> </g></svg></div>
+  <div id="d_p"></div>
+  <p id="guest">Guest</p>
+  <div id="user_name">Username </div>
+  <div id="fav">&#10084;&#65039; Favourites
+  </div>
+  <div id="p_no">9494022265</div>
+  <div id="wallet">Wallet : 0</div>
+  <div id="log_out"><a href="" style="color: white;">logout</a></div>
+</div>
   <!-- Carousel -->
   <div id="carouselExampleCaptions" class="carousel slide w-80  h-70" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -248,6 +328,13 @@
         }
 
       })
+
+    let profile_button = document.getElementById("profile_div")
+    let profile_container = document.getElementById("profile_container")
+    profile_button.addEventListener("click",()=>{
+profile_container.style.display = "inline-block"
+      
+    })
   </script>
 
 </body>
