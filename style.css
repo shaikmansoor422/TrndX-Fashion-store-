@@ -315,7 +315,7 @@
 #grid_container_1{
   box-sizing: border-box;
   display: grid;
-  width: 70%;
+  width: 80%;
   gap: 10px;
   margin: auto;
   grid-template-rows:repeat(3, 1fr);;
@@ -328,7 +328,7 @@
 #grid_container_2{
   box-sizing: border-box;
   display: grid;
-  width: 70%;
+  width: 80%;
   gap: 10px;
   margin: auto;
   margin-top: 20px;
