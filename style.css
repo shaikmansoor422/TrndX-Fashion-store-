@@ -6,6 +6,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #svg_div_container {
@@ -66,7 +67,7 @@
 /* setting carousel widht and backgroud shadow */
 #carouselExampleCaptions {
   width: 65vw;
-  margin: 50px auto;
+  margin: 20px auto;
   box-shadow: 0px 0px 10px 10px gray;
   border-radius: 20px;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <!-- Where Trends Meet Experience -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,29 +14,39 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
+/* footer styling */
+#footer_main{
+  width: 100%;
+  margin-top: 50PX;
+  background-color: rgb(250, 132, 132);
 
+}
 
+#footer_infos{
+  display: flex;
+  justify-content: space-around;
+}
+
+/* styling category containers */
+#category_container{
+  margin-top: 10px;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar bg-body-tertiary">
+  <nav class="navbar " style="background-color: rgb(237, 237, 237);width: 100%;">
     <div class="container-fluid">
-      <a class="navbar-brand">XXXXX</a>
-      <!-- <form class="d-flex" role="search"> -->
-      <!-- <input id="search_input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-      <!-- <button id="search_svg" class="btn btn-outline-success" type="submit"><svg id="searchsvg" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z"
-                fill="#000000"></path>
-            </g>
-          </svg></button> -->
-      <!-- </form> -->
+      <div id="logo_div"><a href=""><img src="./images/White Black Minimalist Brand Logo (1).png" alt="" style="height: 50px;width: 80px;"></a><a class="navbar-brand" href="">hello</a></div>
+      
+      
       <div id="svg_div_container">
         <div id="heart_div" class="ml-auto"><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -96,6 +106,13 @@
   <div id="wallet">Wallet : 0</div>
   <div id="log_out"><a href="" style="color: white;">logout</a></div>
 </div>
+<!-- div with categories and search bar -->
+ <div id="category_container">
+  <div><a href="">Men</a></div>
+  <div><a href="">Women</a></div>
+  <div><a href="">kids</a></div>
+  <div><input type="search" placeholder="search"><button>search</button></div>
+ </div>
   <!-- Carousel -->
   <div id="carouselExampleCaptions" class="carousel slide w-80  h-70" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -217,6 +234,31 @@
     <div  class="item7"><img  src="./images/grid_7.jpg" alt=""></div>
     <div  class="item8"><img  src="./images/grid_8.jpg" alt=""></div>
   </div>
+
+  <!-- footer of the main page -->
+  <footer id="footer_main">
+    <p>Sign up now and be the first to know about exclusive offers. latest fashion news & style tips!</p>
+    <div id="footer_infos">
+    <div id="shop">Shop <br><br>
+      <p>Ladies</p>
+      <p>Men</p>
+      <p>Baby</p>
+      <p>Kids</p>
+    </div>
+    <div id="about">About US <br><br>
+    <p>Our strength</p>
+    <p>Our prioritise</p>
+    <p>Our goal</p>
+    <p>Who we are</p>
+    <p></p></div>
+    <div id="contact">Contact Us <br><br>
+    <p>Phone</p>
+    <p>Email</p>
+    <p>Git-Hub</p>
+    <p>Linked_in</p>
+    <p>Instagram</p></div>
+  </div>
+  </footer>
 
   <script>
     let popup = document.getElementById("poplog")
