@@ -14,64 +14,8 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    #svg_div_container {
-      display: flex;
-      column-gap: 10px;
-    }
-
-    #sliding_products {
-      height: 400px;
-      width: 90%;
-      margin: auto;
-      scroll-behavior: smooth;
-      overflow: hidden;
-    }
-
-    ::-webkit-scrollbar {
-      overflow: hidden;
-    }
 
 
-    #slide_heading {
-      text-align: center;
-      font-weight: bold;
-      font-size: 30px;
-      font-family: 'Garamond', serif;
-      animation: wave 5s infinite;
-      color: black;
-
-    }
-
-    @keyframes wave {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    
-    #profile_div,
-    #heart_div,
-    #cart_div {
-      margin-top: -5px;
-    }
-
-    #profile_svg,
-    #cart_svg,
-    #fav_heart {
-      height: 20px;
-      width: 25px;
-    }
   </style>
 </head>
 
@@ -259,7 +203,20 @@
       <button type="button" id="log_acc_but">Log-in</button>
     </div>
   </div>
-
+  <!-- grid gallery template one -->
+  <div id="grid_container_1">
+    <div  class="item1" ><img src="./images/grid_1.jpg" alt="" ></div>
+    <div  class="item2"><img  src="./images/grid_2.png" alt="" ></div>
+    <div  class="item3"><img  src="./images/grid_3.png" alt=""></div>
+    <div  class="item4"><img  src="./images/grid_4.jpg" alt=""></div>
+  </div>
+  <!-- grid gallery template two -->
+  <div id="grid_container_2">
+    <div  class="item5" ><img src="./images/grid_5.jpg" alt="" ></div>
+    <div  class="item6"><img  src="./images/grid_6.jpg" alt="" ></div>
+    <div  class="item7"><img  src="./images/grid_7.jpg" alt=""></div>
+    <div  class="item8"><img  src="./images/grid_8.jpg" alt=""></div>
+  </div>
 
   <script>
     let popup = document.getElementById("poplog")
@@ -329,12 +286,12 @@
 
       })
 
-    let profile_button = document.getElementById("profile_div")
-    let profile_container = document.getElementById("profile_container")
-    profile_button.addEventListener("click",()=>{
-profile_container.style.display = "inline-block"
+//     let profile_button = document.getElementById("profile_div")
+//     let profile_container = document.getElementById("profile_container")
+//     profile_button.addEventListener("click",()=>{
+// profile_container.style.display = "inline-block"
       
-    })
+//     })
   </script>
 
 </body>
