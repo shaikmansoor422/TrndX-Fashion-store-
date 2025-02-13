@@ -13,6 +13,48 @@
   display: flex;
   column-gap: 10px;
 }
+/* styling category containers (men, women, kids and searching bar)*/
+#category_container{
+  margin-top: 10px;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+#searching{
+  color: rgb(113, 3, 3);
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+  height: 17px;
+  border: none;
+  border-bottom: 1.5px solid rgb(113, 3, 3);
+
+}
+ #searching_butt{
+  border: none;
+  background-color: white;
+}
+#searching_svg{
+  height: 25px;
+  fill: rgb(113, 3, 3);
+}
+#category_container a{
+  text-decoration: none;
+  color: rgb(113, 3, 3);
+  font-weight: bold;
+}
+input:focus{
+  outline: none;
+  height: 20px;
+}
+#category_container a:hover{
+  text-decoration:underline;
+}
+
+/* styling for styling products  */
 
 #sliding_products {
   height: 400px;
@@ -381,3 +423,20 @@
   display: inline;
 
 }
+
+/* footer styling  */
+
+
+
+
+#contact_container{
+  display: flex;
+  justify-content: left;
+}
+#contact_container svg{
+  height: 20px;
+  margin: 10px;
+}
+
+/* Designer */
+
