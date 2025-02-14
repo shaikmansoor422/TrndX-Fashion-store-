@@ -26,21 +26,40 @@
 
 #pamphlet_1_brand{
   padding-left: 10px;
-  font-size: 35px;
+  font-size: 45px;
    font-weight: bold;
    color: #4B0082;
    font-family: 'Times New Roman', Times, serif;
    
 }
-#pamphlet_1_qoute{
-   font-size: 20px;
-   padding-left: 10px;
-   font-weight: bold;
-   color: #4B0082;
-   font-family: 'Times New Roman', Times, serif;
-   animation: rollIn 5s;
-   
+#pamphlet_1_qoute {
+  font-size: 18px;
+  padding-left: 15px;
+  font-weight: bold;
+  color: #4B0082;
+  font-family: 'Times New Roman', Times, serif;
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  border-right: 2px solid hsl(275, 100%, 25%); /* Cursor effect */
+  width: 0; /* Start hidden */
+  
+  animation: 
+    typewriter 5s steps(50) 1s infinite normal both, /* Typing effect */
+    blinkingCursor 0.5s steps(2) infinite; /* Cursor blinking */
 }
+
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 185px; } /* Adjust width based on text length */
+}
+
+@keyframes blinkingCursor {
+  50% { border-right-color: transparent; }
+  100% { border-right-color: #4B0082; }
+}
+
+
+
 #pamphlet_1_offers{
 
   border: 2px solid red;
@@ -52,18 +71,6 @@
   color: yellow;
   padding-left: 10px;
 }
-@keyframes rollIn {
-    from {
-        transform: translateX(-100px) rotate(-360deg);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-
 
   </style>
 </head>
@@ -251,17 +258,15 @@
   <!-- grid gallery template one -->
   <div id="grid_container_1">
     <div  class="item1" ><img src="./images/grid_1.jpg" alt="" ></div>
-    <div  class="item2"><img  src="./images/grid_2.png" alt="" ></div>
+    <div  class="item2"><img  src="./images/grid_2.jpg" alt="" ></div>
     <div  class="item3"><img  src="./images/grid_3.png" alt=""></div>
     <div  class="item4"><img  src="./images/grid_4.jpg" alt=""></div>
   </div>
   <!-- pamphlet 1 -->
   <div id="pamphlet_1">
-    <div >
       <p id="pamphlet_1_brand">TrndX </p>
       <p id="pamphlet_1_qoute">Your style, your way.</p>
-      <div id="pamphlet_1_offers"><a href="">Sign-up</a>now and be the first to know about exclusive offers. latest fashion news & style tips!</div>
-    </div>
+      
     
   
   </div>
@@ -272,6 +277,8 @@
     <div  class="item7"><img  src="./images/grid_7.jpg" alt=""></div>
     <div  class="item8"><img  src="./images/grid_8.jpg" alt=""></div>
   </div>
+
+
 
   <!-- footer of the main page -->
  
