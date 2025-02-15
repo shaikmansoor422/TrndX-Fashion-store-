@@ -12,6 +12,12 @@
     gap : 10px !important;
   }
 }
+#pamphlet_1 {
+  height: 250px; 
+  background-size: contain; 
+  background-position: center;
+}
+
 
 /* styling navbar of the page */
 .navbar {
