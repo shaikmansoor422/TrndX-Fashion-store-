@@ -43,25 +43,48 @@
 /* footer styling */
 #footer{
   margin-top: 20px;
-  height: 400px;
+  height: 430px;
   width: 100%;
   background: url("./images/footer_image.jpg") no-repeat center/cover;
+  padding: 15px;
 }
 #keep_in_touch{
   text-align: center;
   color: white;
-  border: 2px solid red;
-  min-width: 250px ;
-  max-width: 400px ;
-  flex: 1 1 auto;
+  width: 280px;
   margin: 20px auto;
   padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+  backdrop-filter: blur(2px);
 
 }
-#contact_container{
+.touch{
+  text-align: center;
+  color: white;
   padding: 0px;
-  width: 205px;
-  margin: auto;
+  font-size: 25px;
+  font-weight: bolder;
+  font-family:'Times New Roman', Times, serif;
+}
+.deals{
+  font-size: 13px;
+}
+#kit input{ /* kep in tpouch form */
+  border: 0.1px solid white;
+  color: white;
+  margin: 5px;
+  width: 230px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  font-size: 15px;
+  font-weight: bold;
+}
+::placeholder{
+color: aliceblue;
 }
 
 
@@ -269,13 +292,14 @@
   </div>
 
 <!-- Footer of the page -->
-<div id="footer">
-  <div id="keep_in_touch">Keep in touch
-    <form action="">
+<footer id="footer">
+  <div class="touch">Keep in touch</div>
+  <div  id="keep_in_touch">
+    <p class="deals">Get exclusive fashion deals straight to your phone!</p>
+    <form action="" id="kit" >
       <input type="text" name="" id="" placeholder="Name"><br>
-      <input type="mail" name="" id="" placeholder="E-mail"><br>
       <input type="tel" name="" id="" placeholder="Phone number"><br>
-      <input type="submit" name="" id="">
+      <input type="submit" name="" id="" style="width: 100px; background-color: rgb(100, 229, 246); border: none; color: white;">
     </form>
   </div>
   <div id="contact_container">
@@ -350,7 +374,7 @@
   <div class="type_text" style="color: white; text-align: center; font-size: 12px;">(Design. Code. Innovate. Repeat.  &#128521;)</div>
 
   </div>     
-</div>
+</footer>
   <!-- footer of the main page -->
  
   <!-- <div id="footer_infos">

@@ -394,6 +394,10 @@ input:focus {
     "img1 img1 img4 img4"
     "img3 img3 img4 img4"
 }
+#grid_container_1 div:hover{
+  transform: scale(1.03);
+}
+ 
  
 
 
@@ -469,6 +473,9 @@ input:focus {
 #contact_container {
   display: flex;
   justify-content: left;
+  padding: 0px;
+  width: 205px;
+  margin: auto;
 }
 
 #contact_container svg {
