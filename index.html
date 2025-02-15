@@ -40,7 +40,29 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+/* footer styling */
+#footer{
+  margin-top: 20px;
+  height: 400px;
+  width: 100%;
+  background: url("./images/footer_image.jpg") no-repeat center/cover;
+}
+#keep_in_touch{
+  text-align: center;
+  color: white;
+  border: 2px solid red;
+  min-width: 250px ;
+  max-width: 400px ;
+  flex: 1 1 auto;
+  margin: 20px auto;
+  padding: 10px;
 
+}
+#contact_container{
+  padding: 0px;
+  width: 205px;
+  margin: auto;
+}
 
 
   </style>
@@ -248,24 +270,15 @@
 
 <!-- Footer of the page -->
 <div id="footer">
-
-</div>
-  <!-- footer of the main page -->
- 
-  <!-- <div id="footer_infos">
-    <div id="shop">Shop <br><br>
-      <p>Ladies</p>
-      <p>Men</p>
-      <p>Baby</p>
-      <p>Kids</p>
-    </div>
-    <div id="about">About US <br><br>
-    <p>Our strength</p>
-    <p>Our prioritise</p>
-    <p>Our goal</p>
-    <p>Who we are</p>
-    <p></p></div> -->
-  <div id="contact_container" style="border :2px solid red">
+  <div id="keep_in_touch">Keep in touch
+    <form action="">
+      <input type="text" name="" id="" placeholder="Name"><br>
+      <input type="mail" name="" id="" placeholder="E-mail"><br>
+      <input type="tel" name="" id="" placeholder="Phone number"><br>
+      <input type="submit" name="" id="">
+    </form>
+  </div>
+  <div id="contact_container">
     <p><a href="https://github.com/shaikmansoor422" target="_blank"><svg id="git" fill="#f7f7f7" viewBox="0 0 1920 1920"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -331,10 +344,29 @@
                         stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     </path>
                 </g>
-            </svg></a></p></div>
-            <div id="designer">Designed and developed by Mansoor (A foolish developer &#128521;)</div>
+            </svg></a></p>
+  </div>   
+  <div id="designer" class="type_text" style="color: white; text-align: center; font-size: 15px;">Designed and developed by <strong>Mansoor</strong> </div>
+  <div class="type_text" style="color: white; text-align: center; font-size: 12px;">(Design. Code. Innovate. Repeat.  &#128521;)</div>
 
-          </div>
+  </div>     
+</div>
+  <!-- footer of the main page -->
+ 
+  <!-- <div id="footer_infos">
+    <div id="shop">Shop <br><br>
+      <p>Ladies</p>
+      <p>Men</p>
+      <p>Baby</p>
+      <p>Kids</p>
+    </div>
+    <div id="about">About US <br><br>
+    <p>Our strength</p>
+    <p>Our prioritise</p>
+    <p>Our goal</p>
+    <p>Who we are</p>
+    <p></p></div> -->
+
 
 
   <script>
