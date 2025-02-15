@@ -19,6 +19,14 @@
 
 }
 
+@media (max-width:370px) {
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 185px } /* Adjust width based on text length */
+  }
+  
+}
+
 
 /* styling navbar of the page */
 .navbar {
