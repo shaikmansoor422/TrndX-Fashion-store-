@@ -50,7 +50,7 @@
 
 @keyframes typewriter {
   0% { width: 0; }
-  100% { width: 185px; } /* Adjust width based on text length */
+  100% { width: 185px } /* Adjust width based on text length */
 }
 
 @keyframes blinkingCursor {
@@ -58,19 +58,10 @@
   100% { border-right-color: #4B0082; }
 }
 
-
-
-#pamphlet_1_offers{
-
-  border: 2px solid red;
-  width: 100px;
-  max-width: 400px;
-  min-width: 100px;
-  width: 40%;
-  flex: 1 1 auto;
-  color: yellow;
-  padding-left: 10px;
+#grid_container_1 > div:hover{
+    transform: scale(1.05); /* Slight increase in size */
 }
+
 
   </style>
 </head>
@@ -266,9 +257,6 @@
   <div id="pamphlet_1">
       <p id="pamphlet_1_brand">TrndX </p>
       <p id="pamphlet_1_qoute">Your style, your way.</p>
-      
-    
-  
   </div>
   <!-- grid gallery template two -->
   <div id="grid_container_2">

@@ -13,9 +13,10 @@
   }
 }
 #pamphlet_1 {
-  height: 250px; 
-  background-size: contain; 
-  background-position: center;
+  height: 350px !important; 
+  background-size: cover !important; 
+  background-position: 70% center !important;
+
 }
 
 
