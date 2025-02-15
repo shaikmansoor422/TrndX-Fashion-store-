@@ -22,7 +22,7 @@
 @media (max-width:370px) {
   @keyframes typewriter {
     0% { width: 0; }
-    100% { width: 185px } /* Adjust width based on text length */
+    100% { width: 60% } /* Adjust width based on text length */
   }
   
 }
