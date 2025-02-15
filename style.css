@@ -405,16 +405,21 @@ input:focus {
   box-sizing: border-box;
   display: grid;
   width: 80%;
-  gap: 10px;
+  gap: 3%;
+  padding: 5%;
   margin: auto;
   margin-top: 20px;
   grid-template-rows: repeat(3, 1fr);
-  ;
+  background: linear-gradient(45deg, #066b7d, #b4fbff);
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "img5 img5 img6 img6"
     "img7 img7 img6 img6"
     "img7 img7 img8 img8"
+}
+
+#grid_container_2 div:hover{
+  transform: scale(1.03);
 }
 
 .item1 {
