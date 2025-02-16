@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>#signup{
-        min-width: 280px;
-        max-width: 40%;
-        flex: 1 1 auto;
-        margin: 40px auto;
-        border-radius: 25px;
-        background: linear-gradient(to right, rgb(118, 207, 251) 10%, rgb(2, 112, 146));
-        box-shadow: 0px 0px 10px 10px gray;
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background: url("./images/log_sign_bg.jpg") no-repeat center/cover;
+        }
+        #heading{
+            color: rgb(252, 252, 251);
+            font-size: 25px;
+            margin-left: 10px;
+            font-weight: bolder;
 
-    }
-    form {
-        text-align: center;
-    }
-    button{
-        background-color: rgb(178, 232, 247);
-        border: none;
-        height: 40px;
-        width: 250px;
-        text-align: center;
-        margin: 20px auto;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        color: rgb(3, 82, 128);
+            
+        }
+        #signup {
+            width: 280px;
+            margin: 50px auto;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px 2px rgba(254, 254, 254, 0.3);
+  backdrop-filter: blur(10px);}
 
-    }
-    
-    input {
-        background-color: rgb(178, 232, 247);
-        border: none;
-        height: 40px;
-        width: 250px;
-        text-align: center;
-        margin: 20px auto;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        color: rgb(3, 82, 128);
-    }
 
-    input:focus {
-        outline: none;
-        font-size: 12px;
+        input {
+            background-color: transparent;
+            border: 1px solid white;
+            height: 40px;
+            width: 230px;
+            text-align: left;
+            margin: 30px 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: rgb(245, 243, 247);
+            padding: 5px;
+            border-radius: 20px;
+        }
 
-    }
+        input:focus {
+            outline: none;
 
-    input::placeholder {
-        color: rgb(4, 78, 100);
-        font-size: 12px;
-        font-weight: lighter;
-    }
-</style>
+        }
+
+        input::placeholder {
+            color: rgb(244, 242, 244);
+            font-size: 13px;
+            font-weight: lighter;
+        }
+        #submit{
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-align: center;
+            color: rgb(254, 253, 253);
+        }
+        #aha {
+            margin-left: 10px;
+            color: white;
+        }
+
+        a {
+            color: rgb(248, 246, 249);
+            font-weight: bold
+        }
+    </style>
 </head>
+
 <body>
     <div id="signup">
         <form action="" id="signed">
-            <p style="text-align: end; padding:10px 10px ; color: lightblue;">x</p>
-            <!-- <h1>XXXXXXXXXXX</h1> -->
-            <h3 style="color: rgb(7, 2, 1);">sign-up / create account</h3>
+            <p style="text-align: end; padding:10px 10px ; color: rgb(113, 5, 123);"><a href="./index.html" style="text-decoration: none; color: white;">X</a></p>
+
+            <p id="heading">Create account<p>
             <label for="email"></label>
             <input type="email" id="email" placeholder="email-address"><br>
             <label for="pass"></label>
             <input type="password" id="pass" placeholder="password"><br>
             <input type="submit" name="" value="sign-up" id="submit"
-                style="  width: 100px; height: 35px; font-weight: bolder ; color: rgb(4, 98, 132); "><br>
-                <button type="button" id="have_account">Already have an account ?</button>
+                style="  width: 100px; height: 35px; font-weight: bolder ; color: rgb(252, 253, 253); "><br>
+            <div id="aha">Already have an account? <a href="./log-in_page.html"> login</a></div>
         </form>
     </div>
     <script>
-       
+
         let signed = document.getElementById("signed")
-        signed.addEventListener("submit",()=>{
+        signed.addEventListener("submit", () => {
             location.assign("./log-succ_page.html")
         })
         let have_account = document.getElementById("have_account")
-        have_account.addEventListener("click",()=>{
+        have_account.addEventListener("click", () => {
             location.assign("./log-in_page.html")
         })
 
     </script>
 </body>
+
 </html>

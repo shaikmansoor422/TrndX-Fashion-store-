@@ -400,7 +400,32 @@ input:focus {
 }
  
  
+/* pamplet styling  */
+#pamphlet_1 {
+  width: 100%;
+  height: 400px;
+  margin-top: 50px;
+  background: url("./images/pamphlet_1.jpg") no-repeat 70% center/cover;
+  padding: 20px 0;
+}
 
+#pamphlet_1_brand{
+  padding-left: 10px;
+  font-size: 45px;
+   font-weight: bold;
+   color: #4B0082;
+   font-family: 'Times New Roman', Times, serif;
+   
+}
+#pamphlet_1_qoute {
+  font-size: 18px;
+  padding-left: 15px;
+  font-weight: bold;
+  color: #4B0082;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* grid container _2 */
 
 #grid_container_2 {
   box-sizing: border-box;
@@ -471,23 +496,7 @@ input:focus {
 
 }
 
-/* footer styling  */
 
-
-
-
-#contact_container {
-  display: flex;
-  justify-content: left;
-  padding: 0px;
-  width: 205px;
-  margin: auto;
-}
-
-#contact_container svg {
-  height: 20px;
-  margin: 10px;
-}
 /* footer styling */
 #footer{
   margin-top: 20px;
@@ -535,5 +544,19 @@ input:focus {
 color: aliceblue;
 }
 
+/* footer styling for contact styling  */
+
+#contact_container {
+  display: flex;
+  justify-content: left;
+  padding: 0px;
+  width: 205px;
+  margin: auto;
+}
+
+#contact_container svg {
+  height: 20px;
+  margin: 10px;
+}
 
 /* Designer */
