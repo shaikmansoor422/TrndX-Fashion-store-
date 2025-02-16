@@ -283,6 +283,11 @@ color: aliceblue;
       <p id="pamphlet_1_brand">TrndX </p>
       <p id="pamphlet_1_qoute">Your style, your way.</p>
   </div>
+
+  <!-- sliding products 2 men -->
+  <div id="sliding_products_men" style="display:flex; overflow-x: auto; gap: 30px; padding: 15px;">
+
+  </div>
   <!-- grid gallery template two -->
   <div id="grid_container_2">
     <div  class="item5" ><img src="./images/grid_5.jpg" alt="" ></div>
@@ -462,6 +467,62 @@ color: aliceblue;
       })
       .catch(()=>{
         sliding_products.innerHTML = "api data isnt fetched"
+        
+      })
+//  // mockAPI fetching.....
+    // sliding products data
+    sliding_products_men = document.getElementById("sliding_products_men")
+    fetch("https://67b1854d3fc4eef538e9fc4f.mockapi.io/men_products")
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        for (let product of data) {
+          let cards = document.createElement("div")
+          cards.style.height = "350px"
+          cards.style.width = "230px "
+          cards.style.flex = "0 0 auto"
+          cards.style.boxShadow = "0px 0px 10px 5px grey"
+          cards.style.borderRadius = "20px"
+
+
+          let p_name = document.createElement("p")
+          p_name.innerHTML = product.name
+          p_name.style.fontWeight = "bold"
+          p_name.style.fontSize = "16px"
+          p_name.style.padding = "5px 0px 0px 10px"
+
+          let p_image = document.createElement("img")
+          p_image.style.height = "170px"
+          p_image.style.width = "110px"
+          p_image.style.margin = "0px"
+          p_image.style.marginLeft = "70px"
+          p_image.src = product.image
+
+          let p_brand = document.createElement("p")
+          p_brand.innerHTML = product.brand
+          p_brand.style.padding = "5px 0px 0px 10px"
+          p_brand.innerHTML = `Brand : ${product.brand}`
+
+          let p_price = document.createElement("p")
+          p_price.innerHTML = product.price
+          p_price.style.textAlign = "center"
+          p_price.style.fontSize = "20px"
+          p_price.style.fontWeight = "bold"
+          p_price.style.padding = "0px 0px 0px 0px"
+
+          let p_size = document.createElement("p")
+          p_size.innerHTML = `<i>Size</i>: ${product.size}`
+          p_size.style.textAlign = "center"
+          p_size.style.fontSize = "13px"
+
+          sliding_products_men.append(cards)
+          cards.append(p_name, p_image, p_brand, p_price, p_size)
+        }
+
+      })
+      .catch(()=>{
+        sliding_products_men.innerHTML = "api data isnt fetched"
         
       })
 

@@ -7,10 +7,11 @@
 
   }
 
-  #grid_container_1 {
+  #grid_container_1, #grid_container_2 {
     width: 90% !important;
     gap : 10px !important;
   }
+  
 }
 #pamphlet_1 {
   height: 350px !important; 
