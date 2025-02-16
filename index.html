@@ -40,52 +40,6 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-/* footer styling */
-#footer{
-  margin-top: 20px;
-  height: 430px;
-  width: 100%;
-  background: url("./images/footer_image.jpg") no-repeat center/cover;
-  padding: 15px;
-}
-#keep_in_touch{
-  text-align: center;
-  color: white;
-  width: 280px;
-  margin: 20px auto;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, .3);
-  backdrop-filter: blur(2px);
-
-}
-.touch{
-  text-align: center;
-  color: white;
-  padding: 0px;
-  font-size: 25px;
-  font-weight: bolder;
-  font-family:'Times New Roman', Times, serif;
-}
-.deals{
-  font-size: 13px;
-}
-#kit input{ /* kep in tpouch form */
-  border: 0.1px solid white;
-  color: white;
-  margin: 5px;
-  width: 230px;
-  height: 40px;
-  border-radius: 20px;
-  text-align: center;
-  background-color: transparent;
-  backdrop-filter: blur(20px);
-  font-size: 15px;
-  font-weight: bold;
-}
-::placeholder{
-color: aliceblue;
-}
 
 
   </style>
@@ -159,9 +113,9 @@ color: aliceblue;
 </div>
 <!-- div with categories and search bar -->
  <div id="category_container">
-  <div><a href="">Men</a></div>
-  <div><a href="">Women</a></div>
-  <div><a href="">kids</a></div>
+  <div><a href="./men.html" target="_blank">Men</a></div>
+  <div><a href="./women.html" target="_blank">Women</a></div>
+  <div><a href="./kids.html" target="_blank">kids</a></div>
   <div><input id="searching" type="search" ><button id="searching_butt"><svg id="searching_svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15C11.381 15 12.6296 14.4415 13.5355 13.5355C14.4415 12.6296 15 11.381 15 10C15 7.23858 12.7614 5 10 5ZM3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 11.5719 16.481 13.0239 15.6063 14.1921L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L14.1921 15.6063C13.0239 16.481 11.5719 17 10 17C6.13401 17 3 13.866 3 10Z" fill="#rgb(113, 3, 3)"></path> </g></svg></button></div>
  </div>
   <!-- Carousel -->
@@ -286,6 +240,10 @@ color: aliceblue;
 
   <!-- sliding products 2 men -->
   <div id="sliding_products_men" style="display:flex; overflow-x: auto; gap: 30px; padding: 15px;">
+
+  </div>
+  <!-- sliding products 3 women -->
+  <div id="sliding_products_women" style="display:flex; overflow-x: auto; gap: 30px; padding: 15px;">
 
   </div>
   <!-- grid gallery template two -->
@@ -470,7 +428,7 @@ color: aliceblue;
         
       })
 //  // mockAPI fetching.....
-    // sliding products data
+    // sliding products data for  mEN PRODUCTS
     sliding_products_men = document.getElementById("sliding_products_men")
     fetch("https://67b1854d3fc4eef538e9fc4f.mockapi.io/men_products")
       .then((response) => {
@@ -525,6 +483,64 @@ color: aliceblue;
         sliding_products_men.innerHTML = "api data isnt fetched"
         
       })
+
+ // mockAPI fetching.....
+    // sliding products data for  WOMEN PRODUCTS
+    sliding_products_women = document.getElementById("sliding_products_women")
+    fetch("https://67b188773fc4eef538ea0385.mockapi.io/women_products")
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        for (let product of data) {
+          let cards = document.createElement("div")
+          cards.style.height = "350px"
+          cards.style.width = "230px "
+          cards.style.flex = "0 0 auto"
+          cards.style.boxShadow = "0px 0px 10px 5px grey"
+          cards.style.borderRadius = "20px"
+
+
+          let p_name = document.createElement("p")
+          p_name.innerHTML = product.name
+          p_name.style.fontWeight = "bold"
+          p_name.style.fontSize = "16px"
+          p_name.style.padding = "5px 0px 0px 10px"
+
+          let p_image = document.createElement("img")
+          p_image.style.height = "170px"
+          p_image.style.width = "110px"
+          p_image.style.margin = "0px"
+          p_image.style.marginLeft = "70px"
+          p_image.src = product.image
+
+          let p_brand = document.createElement("p")
+          p_brand.innerHTML = product.brand
+          p_brand.style.padding = "5px 0px 0px 10px"
+          p_brand.innerHTML = `Brand : ${product.brand}`
+
+          let p_price = document.createElement("p")
+          p_price.innerHTML = product.price
+          p_price.style.textAlign = "center"
+          p_price.style.fontSize = "20px"
+          p_price.style.fontWeight = "bold"
+          p_price.style.padding = "0px 0px 0px 0px"
+
+          let p_size = document.createElement("p")
+          p_size.innerHTML = `<i>Size</i>: ${product.size}`
+          p_size.style.textAlign = "center"
+          p_size.style.fontSize = "13px"
+
+          sliding_products_women.append(cards)
+          cards.append(p_name, p_image, p_brand, p_price, p_size)
+        }
+
+      })
+      .catch(()=>{
+        sliding_products_men.innerHTML = "api data isnt fetched"
+        
+      })
+      
 
 //     let profile_button = document.getElementById("profile_div")
 //     let profile_container = document.getElementById("profile_container")
