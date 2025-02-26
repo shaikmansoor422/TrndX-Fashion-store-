@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .checkmark {
+            font-size: 100px;
+            color: #4CAF50;
+            animation: pop 0.5s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .message {
+            font-size: 32px;
+            margin-top: 10px;
+            opacity: 0;
+            font-weight: bold;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .cart {
+            position: absolute;
+            left: -200px;
+            bottom: 100px;
+            width: 120px;
+            height: 100px;
+            background: url('cart.png') no-repeat center;
+            background-size: contain;
+            animation: moveCart 3s ease-in-out forwards;
+        }
+
+        @keyframes moveCart {
+            0% { left: -200px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 50%; transform: translateX(-50%); }
+        }
+
+        /* Confetti Effect */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: none;
+            background: #ff416c;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: #ff4b2b;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay>
+        <source src="success.mp3" type="audio/mp3">
+    </audio>
+    
+    <div class="container">
+        <div class="checkmark">✔️</div>
+        <div class="message">Order Successful!</div>
+        <button class="btn-home" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <div class="cart"></div>
+
+    <!-- Generating multiple confetti elements -->
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 30; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+                confetti.style.background = ["#ffeb3b", "#ff5722", "#4CAF50", "#2196F3", "#ff9800"][Math.floor(Math.random() * 5)];
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => { confetti.remove(); }, 5000);
+            }
+        }
+        createConfetti();
+    </script>
+
+</body>
+</html>

@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
-    #fav_count, #cart_count {
+    #fav_count,
+    #cart_count {
       width: 12px;
       height: 12px;
       position: absolute;
@@ -25,9 +26,8 @@
       background-color: rgb(134, 190, 250);
       font-size: 8px;
       text-align: center;
-      font-weight:900;
+      font-weight: 900;
     }
-
   </style>
 </head>
 
@@ -41,9 +41,8 @@
 
       <div id="svg_div_container">
         <div id="heart_div" class="ml-auto">
-          <div id="fav_count"
-            >0</div><svg
-            id="fav_heart" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div id="fav_count">0</div><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
@@ -54,8 +53,8 @@
           </svg>
         </div>
         <div id="cart_div">
-          <div id="cart_count">0</div><svg
-            id="cart_svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div id="cart_count">0</div><svg id="cart_svg" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
@@ -404,19 +403,20 @@
       })
       .then((data) => {
         for (let product of data) {
-          
+
           let cards = document.createElement("div")
-          cards.style.height = "350px"
+          cards.style.height = "360px"
           cards.style.width = "230px"
           cards.style.flex = "0 0 auto"
           cards.style.boxShadow = "0px 0px 10px 5px grey"
           cards.style.borderRadius = "20px"
+          cards.style.position = "relative";
 
-          // Redirect to product_show.html with ID
-          let link = document.createElement("a");
-          link.href = `./product_show.html?id=${product.id}`;
-          link.style.textDecoration = "none";
-          link.style.color = "inherit";
+          // // Redirect to product_show.html with ID
+          // let link = document.createElement("a");
+          // link.href = `./product_show.html?id=${product.id}`;
+          // link.style.textDecoration = "none";
+          // link.style.color = "inherit";
 
 
           let p_name = document.createElement("p")
@@ -434,8 +434,9 @@
 
           let p_brand = document.createElement("p")
           p_brand.innerHTML = product.brand
-          p_brand.style.padding = "5px 0px 0px 10px"
+          p_brand.style.padding = "0px 0px 0px 10px"
           p_brand.innerHTML = `Brand : ${product.brand}`
+
 
           let p_price = document.createElement("p")
           p_price.innerHTML = product.price
@@ -443,7 +444,7 @@
           p_price.style.margin = "0px"
           p_price.style.fontSize = "20px"
           p_price.style.fontWeight = "bold"
-          p_price.style.padding = "0px 0px 0px 0px"
+          p_price.style.padding = "0px"
 
           let p_size = document.createElement("p")
           p_size.innerHTML = `<i>Size</i>: ${product.size}`
@@ -451,25 +452,69 @@
           p_size.style.fontSize = "13px"
           p_size.style.margin = "0px"
 
-          let add_to_cart = document.createElement("div")
-          add_to_cart.innerHTML = "Add to cart"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.backgroundColor = "grey"
-          add_to_cart.style.boxShadow = "0px 0px 5px 1px"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.textAlign = "center"
-          add_to_cart.style.width = "120px"
-          add_to_cart.style.margin = "auto"
-          add_to_cart.style.textAlign = "center"
+
+          let wishlist = document.createElement("div");
+          wishlist.textContent = "♡";
+          wishlist.style.borderRadius = "50%";
+          wishlist.style.backgroundColor = "white";
+          wishlist.style.fontSize = "30px";
+          wishlist.style.textAlign = "center";
+          wishlist.style.width = "40px";
+          wishlist.style.height = "40px";
+          wishlist.style.lineHeight = "40px"; // Center the heart
+          wishlist.style.cursor = "pointer";
+          wishlist.style.display = "inline-block";
+
+          // wishlist.style.marginTop = "10px";
+          wishlist.style.boxSizing = "borderbox";
+          wishlist.style.position = "absolute";
+
+          wishlist.style.right = "5px";
+          wishlist.style.bottom = "10px";
 
 
+
+          // Toggle Heart Color on Click
+          wishlist.onclick = function () {
+            if (wishlist.textContent === "♡") {
+              wishlist.textContent = "❤️";
+              wishlist.style.fontSize = "19px";
+            } else {
+              wishlist.textContent = "♡";
+              wishlist.style.fontSize = "30px";
+            }
+          };
+
+          let add_to_cart = document.createElement("div");
+          add_to_cart.innerHTML = "🛒 Add to cart";
+          add_to_cart.style.backgroundColor = "white";
+          add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
+          add_to_cart.style.textAlign = "center";
+          add_to_cart.style.width = "100px";
+          add_to_cart.style.padding = "8px";
+          add_to_cart.style.cursor = "pointer";
+          add_to_cart.style.display = "inline-block";
+          add_to_cart.style.margin = "10px 10px";
+          add_to_cart.style.fontSize = "12px";
+          add_to_cart.style.borderRadius = "8px";
+
+          // Toggle "Add to Cart" Effect
+          add_to_cart.onclick = function () {
+            if (add_to_cart.innerHTML.includes("🛒")) {
+              add_to_cart.innerHTML = "✅ Added";
+              add_to_cart.style.backgroundColor = "green";
+              add_to_cart.style.color = "white";
+            } else {
+              add_to_cart.innerHTML = "🛒 Add to cart";
+              add_to_cart.style.backgroundColor = "white";
+              add_to_cart.style.color = "black";
+            }
+          };
 
           // Wrap the entire card inside the link
-          link.append(cards);
-          cards.append(p_name, p_image, p_brand, p_price, p_size,add_to_cart);
-
-          // Append to parent container
-          sliding_products.append(link);
+          // link.append(cards);
+          sliding_products.append(cards)
+          cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
 
         }
 
@@ -488,16 +533,18 @@
       .then((data) => {
         for (let product of data) {
           let cards = document.createElement("div")
-          cards.style.height = "350px"
-          cards.style.width = "230px "
+          cards.style.height = "360px"
+          cards.style.width = "230px"
           cards.style.flex = "0 0 auto"
           cards.style.boxShadow = "0px 0px 10px 5px grey"
           cards.style.borderRadius = "20px"
+          cards.style.position = "relative";
 
-          let link = document.createElement("a");
-          link.href = `./product_show.html?id=${product.id}`;
-          link.style.textDecoration = "none";
-          link.style.color = "inherit";
+          // // Redirect to product_show.html with ID
+          // let link = document.createElement("a");
+          // link.href = `./product_show.html?id=${product.id}`;
+          // link.style.textDecoration = "none";
+          // link.style.color = "inherit";
 
 
           let p_name = document.createElement("p")
@@ -515,40 +562,88 @@
 
           let p_brand = document.createElement("p")
           p_brand.innerHTML = product.brand
-          p_brand.style.padding = "5px 0px 0px 10px"
-          p_brand.style.margin = "0px"
+          p_brand.style.padding = "0px 0px 0px 10px"
           p_brand.innerHTML = `Brand : ${product.brand}`
+
 
           let p_price = document.createElement("p")
           p_price.innerHTML = product.price
           p_price.style.textAlign = "center"
+          p_price.style.margin = "0px"
           p_price.style.fontSize = "20px"
           p_price.style.fontWeight = "bold"
-          p_price.style.margin = "0px"
-          p_price.style.padding = "0px 0px 0px 0px"
+          p_price.style.padding = "0px"
 
           let p_size = document.createElement("p")
           p_size.innerHTML = `<i>Size</i>: ${product.size}`
           p_size.style.textAlign = "center"
           p_size.style.fontSize = "13px"
-          p_size.style.margin = "5px"
+          p_size.style.margin = "0px"
 
-          let add_to_cart = document.createElement("div")
-          add_to_cart.innerHTML = "Add to cart"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.backgroundColor = "grey"
-          add_to_cart.style.boxShadow = "0px 0px 5px 1px"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.textAlign = "center"
-          add_to_cart.style.width = "120px"
-          add_to_cart.style.margin = "auto"
-          add_to_cart.style.textAlign = "center"
 
-          link.append(cards);
-          cards.append(p_name, p_image, p_brand, p_price, p_size,add_to_cart);
+          let wishlist = document.createElement("div");
+          wishlist.textContent = "♡";
+          wishlist.style.borderRadius = "50%";
+          wishlist.style.backgroundColor = "white";
+          wishlist.style.fontSize = "30px";
+          wishlist.style.textAlign = "center";
+          wishlist.style.width = "40px";
+          wishlist.style.height = "40px";
+          wishlist.style.lineHeight = "40px"; // Center the heart
+          wishlist.style.cursor = "pointer";
+          wishlist.style.display = "inline-block";
 
-          // Append to parent container
-          sliding_products_men.append(link);
+          // wishlist.style.marginTop = "10px";
+          wishlist.style.boxSizing = "borderbox";
+          wishlist.style.position = "absolute";
+
+          wishlist.style.right = "5px";
+          wishlist.style.bottom = "10px";
+
+
+
+          // Toggle Heart Color on Click
+          wishlist.onclick = function () {
+            if (wishlist.textContent === "♡") {
+              wishlist.textContent = "❤️";
+              wishlist.style.fontSize = "19px";
+            } else {
+              wishlist.textContent = "♡";
+              wishlist.style.fontSize = "30px";
+            }
+          };
+
+          let add_to_cart = document.createElement("div");
+          add_to_cart.innerHTML = "🛒 Add to cart";
+          add_to_cart.style.backgroundColor = "white";
+          add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
+          add_to_cart.style.textAlign = "center";
+          add_to_cart.style.width = "100px";
+          add_to_cart.style.padding = "8px";
+          add_to_cart.style.cursor = "pointer";
+          add_to_cart.style.display = "inline-block";
+          add_to_cart.style.margin = "10px 10px";
+          add_to_cart.style.fontSize = "12px";
+          add_to_cart.style.borderRadius = "8px";
+
+          // Toggle "Add to Cart" Effect
+          add_to_cart.onclick = function () {
+            if (add_to_cart.innerHTML.includes("🛒")) {
+              add_to_cart.innerHTML = "✅ Added";
+              add_to_cart.style.backgroundColor = "green";
+              add_to_cart.style.color = "white";
+            } else {
+              add_to_cart.innerHTML = "🛒 Add to cart";
+              add_to_cart.style.backgroundColor = "white";
+              add_to_cart.style.color = "black";
+            }
+          };
+
+          // Wrap the entire card inside the link
+          // link.append(cards);
+          sliding_products_men.append(cards)
+          cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
+
         }
 
       })
@@ -567,16 +662,18 @@
       .then((data) => {
         for (let product of data) {
           let cards = document.createElement("div")
-          cards.style.height = "350px"
-          cards.style.width = "230px "
+          cards.style.height = "360px"
+          cards.style.width = "230px"
           cards.style.flex = "0 0 auto"
           cards.style.boxShadow = "0px 0px 10px 5px grey"
           cards.style.borderRadius = "20px"
+          cards.style.position = "relative";
 
-          let link = document.createElement("a");
-          link.href = `./product_show.html?id=${product.id}`;
-          link.style.textDecoration = "none";
-          link.style.color = "inherit";
+          // // Redirect to product_show.html with ID
+          // let link = document.createElement("a");
+          // link.href = `./product_show.html?id=${product.id}`;
+          // link.style.textDecoration = "none";
+          // link.style.color = "inherit";
 
 
           let p_name = document.createElement("p")
@@ -594,41 +691,88 @@
 
           let p_brand = document.createElement("p")
           p_brand.innerHTML = product.brand
-          p_brand.style.padding = "5px 0px 0px 10px"
+          p_brand.style.padding = "0px 0px 0px 10px"
           p_brand.innerHTML = `Brand : ${product.brand}`
-          p_brand.style.margin = "0px"
+
 
           let p_price = document.createElement("p")
           p_price.innerHTML = product.price
           p_price.style.textAlign = "center"
+          p_price.style.margin = "0px"
           p_price.style.fontSize = "20px"
           p_price.style.fontWeight = "bold"
-          p_price.style.padding = "0px 0px 0px 0px"
-          p_price.style.margin = "0px"
+          p_price.style.padding = "0px"
 
           let p_size = document.createElement("p")
           p_size.innerHTML = `<i>Size</i>: ${product.size}`
           p_size.style.textAlign = "center"
           p_size.style.fontSize = "13px"
-          p_size.style.margin = "5px"
+          p_size.style.margin = "0px"
 
 
-          let add_to_cart = document.createElement("div")
-          add_to_cart.innerHTML = "Add to cart"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.backgroundColor = "grey"
-          add_to_cart.style.boxShadow = "0px 0px 5px 1px"
-          add_to_cart.style.border = "2px solid grey"
-          add_to_cart.style.textAlign = "center"
-          add_to_cart.style.width = "120px"
-          add_to_cart.style.margin = "auto"
-          add_to_cart.style.textAlign = "center"
+          let wishlist = document.createElement("div");
+          wishlist.textContent = "♡";
+          wishlist.style.borderRadius = "50%";
+          wishlist.style.backgroundColor = "white";
+          wishlist.style.fontSize = "30px";
+          wishlist.style.textAlign = "center";
+          wishlist.style.width = "40px";
+          wishlist.style.height = "40px";
+          wishlist.style.lineHeight = "40px"; // Center the heart
+          wishlist.style.cursor = "pointer";
+          wishlist.style.display = "inline-block";
 
-          link.append(cards);
-          cards.append(p_name, p_image, p_brand, p_price, p_size,add_to_cart);
+          // wishlist.style.marginTop = "10px";
+          wishlist.style.boxSizing = "borderbox";
+          wishlist.style.position = "absolute";
 
-          // Append to parent container
-          sliding_products_women.append(link);
+          wishlist.style.right = "5px";
+          wishlist.style.bottom = "10px";
+
+
+
+          // Toggle Heart Color on Click
+          wishlist.onclick = function () {
+            if (wishlist.textContent === "♡") {
+              wishlist.textContent = "❤️";
+              wishlist.style.fontSize = "19px";
+            } else {
+              wishlist.textContent = "♡";
+              wishlist.style.fontSize = "30px";
+            }
+          };
+
+          let add_to_cart = document.createElement("div");
+          add_to_cart.innerHTML = "🛒 Add to cart";
+          add_to_cart.style.backgroundColor = "white";
+          add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
+          add_to_cart.style.textAlign = "center";
+          add_to_cart.style.width = "100px";
+          add_to_cart.style.padding = "8px";
+          add_to_cart.style.cursor = "pointer";
+          add_to_cart.style.display = "inline-block";
+          add_to_cart.style.margin = "10px 10px";
+          add_to_cart.style.fontSize = "12px";
+          add_to_cart.style.borderRadius = "8px";
+
+          // Toggle "Add to Cart" Effect
+          add_to_cart.onclick = function () {
+            if (add_to_cart.innerHTML.includes("🛒")) {
+              add_to_cart.innerHTML = "✅ Added";
+              add_to_cart.style.backgroundColor = "green";
+              add_to_cart.style.color = "white";
+            } else {
+              add_to_cart.innerHTML = "🛒 Add to cart";
+              add_to_cart.style.backgroundColor = "white";
+              add_to_cart.style.color = "black";
+            }
+          };
+
+          // Wrap the entire card inside the link
+          // link.append(cards);
+          sliding_products_women.append(cards)
+          cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
+
         }
 
       })
