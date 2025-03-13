@@ -13,6 +13,7 @@
   <style>
     #navbar {
       display: flex;
+      padding: 0px;
     }
 
     #cart {
@@ -22,10 +23,46 @@
 
     #body {
       border: 2px solid brown;
-      margin: 10%;
-      margin-top: 10px;
+      margin: 20px auto;
       border-radius: 20px;
       box-shadow: 0px 0px 10px 5px;
+      min-width: 280px;
+      max-width: 60%;
+      flex: 1 1 auto;
+      padding: 10PX;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+    }
+
+    #bottom_container {
+      width: 100%;
+      position: fixed;
+      bottom: 5px;
+      display: flex;
+      justify-content: space-around;
+      background: linear-gradient(to right, rgb(11, 153, 168), rgb(128, 2, 2));
+      padding: 5px;
+    }
+
+    #total_price {
+      color: white;
+      font-weight: bolder;
+      height: 50px;
+      width: 150px;
+      display: flex;
+      align-items: center;
+    }
+
+    #buy_now {
+      border: 0.1px solid white;
+      height: 50px;
+      width: 100px;
+      color: white;
+      font-weight: bolder;
+      background: linear-gradient(to right, rgb(11, 153, 168), rgb(128, 2, 2));
+      border-radius: 40px;
     }
   </style>
 </head>
@@ -35,67 +72,124 @@
   <nav id="navbar" class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.html">
-        <img src="./images/White Black Minimalist Brand Logo (1).png" alt="Logo" width="60" height="40"
+        <img src="./images/White Black Minimalist Brand Logo (1).png" alt="Logo" width="80" height="50"
           class="d-inline-block align-text-top" />
       </a>
       <div id="cart">Your Cart</div>
     </div>
   </nav>
   <div id="body"></div>
+  <div id="bottom_container">
+    <div id="total_price"> Total Price :</div>
+    <button id="buy_now"> Buy now</button>
+  </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    let bodyDiv = document.getElementById("body");
-
-    if (cartItems.length === 0) {
-        bodyDiv.innerHTML = "<h3 style='text-align: center; padding: 20px;'>Your cart is empty</h3>";
+      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      let body = document.getElementById("body")
+      if (cartItems.length === 0) {
+        body.innerHTML = "<h3 style='text-align: center; padding: 20px;'>Your cart is empty</h3>";
         return;
-    }
+      }
 
-    cartItems.forEach(product => {
-        let card = document.createElement("div");
-        card.classList.add("card", "m-3");
-        card.style.width = "18rem";
-        card.style.boxShadow = "0px 0px 10px 3px grey";
-        card.style.borderRadius = "10px";
-        card.style.padding = "10px";
+      cartItems.forEach((product) => {
+        let cards = document.createElement("div")
+        cards.style.height = "360px"
+        cards.style.width = "230px"
+        cards.style.flex = "0 0 auto"
+        cards.style.boxShadow = "0px 0px 10px 5px grey"
+        cards.style.borderRadius = "20px"
+        cards.style.margin = "10px"
 
-        let img = document.createElement("img");
-        img.src = product.image_url;
-        img.classList.add("card-img-top");
-        img.style.height = "200px";
-        img.style.objectFit = "contain";
 
-        let cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
+        let p_name = document.createElement("p")
+        p_name.innerHTML = product.product_name
+        p_name.style.fontWeight = "bold"
+        p_name.style.fontSize = "16px"
+        p_name.style.padding = "5px 0px 0px 10px"
 
-        let title = document.createElement("h5");
-        title.classList.add("card-title");
-        title.textContent = product.product_name;
+        let p_image = document.createElement("img")
+        p_image.style.height = "170px"
+        p_image.style.width = "110px"
+        p_image.style.margin = "0px"
+        p_image.style.marginLeft = "70px"
+        p_image.src = product.image_url
 
-        let brand = document.createElement("p");
-        brand.classList.add("card-text");
-        brand.innerHTML = `<strong>Brand:</strong> ${product.brand}`;
+        let p_brand = document.createElement("p")
+        p_brand.innerHTML = product.brand
+        p_brand.style.padding = "0px 0px 0px 10px"
+        p_brand.innerHTML = `Brand : ${product.brand}`
 
-        let price = document.createElement("p");
-        price.classList.add("card-text");
-        price.innerHTML = `<strong>Price:</strong> ${product.price}`;
 
-        let removeBtn = document.createElement("button");
-        removeBtn.classList.add("btn", "btn-danger");
-        removeBtn.textContent = "Remove";
-        removeBtn.onclick = function () {
-            cartItems = cartItems.filter(item => item.id !== product.id);
-            localStorage.setItem("cart", JSON.stringify(cartItems));
-            location.reload();
-        };
+        let p_price = document.createElement("p")
+        p_price.innerHTML = product.price
+        p_price.style.textAlign = "center"
+        p_price.style.margin = "0px"
+        p_price.style.fontSize = "20px"
+        p_price.style.fontWeight = "bold"
+        p_price.style.padding = "0px"
 
-        cardBody.append(title, brand, price, removeBtn);
-        card.append(img, cardBody);
-        bodyDiv.append(card);
+        let p_size = document.createElement("p")
+        p_size.innerHTML = `<i>Size</i>: ${product.size}`
+        p_size.style.textAlign = "center"
+        p_size.style.fontSize = "13px"
+        p_size.style.margin = "0px"
+
+
+        let remove = document.createElement("button")
+        remove.innerHTML = `<i>Remove</i>`
+        remove.style.textAlign = "center"
+        remove.style.fontSize = "13px"
+        remove.style.margin = "0px"
+        remove.onclick = removeFromCart
+
+
+        function removeFromCart(productId) {
+          let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+          for (let i = 0; i < cartItems.length; i++) {
+            if (cartItems[i].id === product.id) {
+              cartItems.splice(i, 1);
+              break;
+            }
+          }
+
+          localStorage.setItem("cart", JSON.stringify(cartItems));
+          location.reload();
+        }
+
+
+        body.append(cards)
+        cards.appendChild(p_name);
+        cards.appendChild(p_image);
+        cards.appendChild(p_brand);
+        cards.appendChild(p_price);
+        cards.appendChild(p_size);
+        cards.appendChild(remove);
+
+      });
+      let total_Price = document.getElementById("total_price")
+      let price_sum = 0
+      for (let product of cartItems) {
+        price_sum += parseFloat(product.price)
+      }
+      total_Price.innerHTML = `Total Price :${price_sum.toFixed(2)}`
+
+
+      let btn = document.getElementById("buy_now")
+      if (price_sum > 0) {
+        btn.addEventListener("click", () => {
+          location.assign("./order_confirm.html")
+        })
+      }
     });
-});
 
+
+
+
+    // btn.addEventListener("click",()=>{
+
+    // })
   </script>
 </body>
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tags 65-80 Example</title>
+</head>
+<body>
+
+    <!-- 65. <progress> -->
+    <label for="progress">Progress:</label>
+    <progress id="progress" value="70" max="100"></progress>
+    <hr>
+
+    <!-- 66. <meter> -->
+    <label for="disk">Disk Usage:</label>
+    <meter id="disk" value="60" min="0" max="100" low="30" high="80" optimum="50"></meter>
+    <hr>
+
+    <!-- 67. <section> -->
+    <section>
+        <h2>About Us</h2>
+        <p>We provide high-quality services.</p>
+    </section>
+    <hr>
+
+    <!-- 68. <article> -->
+    <article>
+        <h2>Breaking News</h2>
+        <p>Latest updates on technology.</p>
+    </article>
+    <hr>
+
+    <!-- 69. <aside> -->
+    <aside>
+        <p>Related articles: Web Development, AI Trends</p>
+    </aside>
+    <hr>
+
+    <!-- 70. <header> -->
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    <hr>
+
+    <!-- 71. <footer> -->
+    <footer>
+        <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
+    <hr>
+
+    <!-- 72. <nav> -->
+    <nav>
+        <a href="home.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+    <hr>
+
+    <!-- 73. <main> -->
+    <main>
+        <h2>Main Content</h2>
+        <p>This is the most important part of the page.</p>
+    </main>
+    <hr>
+
+    <!-- 74. <figure> and 75. <figcaption> -->
+    <figure>
+        <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        <figcaption>Beautiful Nature</figcaption>
+    </figure>
+    <hr>
+
+    <!-- 76. <details> and 77. <summary> -->
+    <details>
+        <summary>Click to reveal details</summary>
+        <p>Here is some hidden information.</p>
+    </details>
+    <hr>
+
+    <!-- 78. <dialog> -->
+    <dialog id="myDialog">
+        <p>This is a dialog box.</p>
+        <button onclick="document.getElementById('myDialog').close()">Close</button>
+    </dialog>
+    <button onclick="document.getElementById('myDialog').showModal()">Open Dialog</button>
+    <hr>
+
+    <!-- 79. <template> -->
+    <template id="greetTemplate">
+        <p>Hello, User!</p>
+    </template>
+    <script>
+        let temp = document.getElementById("greetTemplate");
+        document.body.appendChild(temp.content.cloneNode(true));
+    </script>
+    <hr>
+
+    <!-- 80. <slot> (For Web Components) -->
+    <custom-element>
+        <p slot="message">This is a slotted message.</p>
+    </custom-element>
+
+</body>
+</html>
