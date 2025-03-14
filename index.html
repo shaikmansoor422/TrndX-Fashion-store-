@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="./style.css">
+  <script src="./navigation_pages.js" defer></script>
 
   <style>
     #fav_count,
@@ -40,7 +41,7 @@
 
 
       <div id="svg_div_container">
-        <div id="heart_div" class="ml-auto">
+        <div id="heart_div" class="ml-auto" onclick=to_wishlist_page()>
           <div id="fav_count">0</div><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -52,7 +53,7 @@
             </g>
           </svg>
         </div>
-        <div id="cart_div">
+        <div id="cart_div" onclick=to_cart_page()>
           <div id="cart_count">0</div><svg id="cart_svg" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -381,6 +382,7 @@
 
 
   <script>
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
     // mockAPI fetching.....
     // sliding products data
@@ -423,7 +425,7 @@
           p_brand.style.padding = "0px 0px 0px 10px";
 
           let p_price = document.createElement("p");
-          p_price.innerHTML = product.price;
+          p_price.innerHTML = `₹${product.price}`
           p_price.style.textAlign = "center";
           p_price.style.margin = "0px";
           p_price.style.fontSize = "20px";
@@ -447,23 +449,28 @@
     </g>
 </svg>`;
 
-wishlist.style.textAlign = "center";
-wishlist.style.width = "25px";
-wishlist.style.height = "25px";
-wishlist.style.cursor = "pointer";
-wishlist.style.display = "inline-block";
-wishlist.style.position = "absolute";
-wishlist.style.right = "7px";
-wishlist.style.bottom = "17px";
+          wishlist.style.textAlign = "center";
+          wishlist.style.width = "25px";
+          wishlist.style.height = "25px";
+          wishlist.style.cursor = "pointer";
+          wishlist.style.display = "inline-block";
+          wishlist.style.position = "absolute";
+          wishlist.style.right = "7px";
+          wishlist.style.bottom = "17px";
 
-document.body.appendChild(wishlist);
+          document.body.appendChild(wishlist);
 
-wishlist.onclick = function () {
-    let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
-    let isActive = wishlist.getAttribute("data-active") === "true";
+          wishlist.onclick = function () {
+            let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+            let isActive = wishlist.getAttribute("data-active") === "true";
 
-    if (!isActive) {
-        wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            if (!isActive) {
+
+              if (wishlistItems.length >= 4) {
+                alert("Your wishlist is full! Remove an item before adding another.");
+                return;
+              }
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier"> 
@@ -471,10 +478,10 @@ wishlist.onclick = function () {
                 fill="#f10404"></path> 
             </g>
         </svg>`;
-        wishlist.setAttribute("data-active", "true");
-        wishlistItems.push(product);
-    } else {
-        wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              wishlist.setAttribute("data-active", "true");
+              wishlistItems.push(product);
+            } else {
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier"> 
@@ -482,18 +489,35 @@ wishlist.onclick = function () {
                 fill="#d2d0d0"></path> 
             </g>
         </svg>`;
-        wishlist.setAttribute("data-active", "false");
-        wishlistItems = wishlistItems.filter(item => item.id !== product.id);
-    }
+              wishlist.setAttribute("data-active", "false");
+              wishlistItems = wishlistItems.filter(item => item.id !== product.id);
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
-};
+            }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+          };
 
           // Cart button
           let add_to_cart = document.createElement("div");
-          add_to_cart.innerHTML = cartItems.some(item => item.id === product.id) ? "✅ Added" : "🛒 Add to cart";
-          add_to_cart.style.backgroundColor = add_to_cart.innerHTML.includes("✅") ? "green" : "white";
-          add_to_cart.style.color = add_to_cart.innerHTML.includes("✅") ? "white" : "black";
+
+          let isInCart = false; // Assume the product is not in the cart
+          for (let item of cartItems) {
+            if (item.id === product.id) {
+              isInCart = true; // If the product is found in the cart, set it to true
+              break;
+            }
+          }
+
+          // Set button text
+          if (isInCart) {
+            add_to_cart.innerHTML = "✅ Added";
+            add_to_cart.style.backgroundColor = "green"; // Green means already added
+            add_to_cart.style.color = "white"; // White text on green
+          } else {
+            add_to_cart.innerHTML = "🛒 Add to cart";
+            add_to_cart.style.backgroundColor = "white"; // White means not yet added
+            add_to_cart.style.color = "black"; // Black text on white
+          }
           add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
           add_to_cart.style.textAlign = "center";
           add_to_cart.style.width = "100px";
@@ -507,6 +531,10 @@ wishlist.onclick = function () {
           add_to_cart.onclick = function () {
             let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
             if (add_to_cart.innerHTML.includes("🛒")) {
+              if (cartItems.length >= 4) {
+                alert("Your cart is full! Remove an item before adding another.");
+                return;
+              }
               add_to_cart.innerHTML = "✅ Added";
               add_to_cart.style.backgroundColor = "green";
               add_to_cart.style.color = "white";
@@ -536,6 +564,7 @@ wishlist.onclick = function () {
         return response.json()
       })
       .then((data) => {
+        console.log(data)
         for (let product of data) {
           let cards = document.createElement("div")
           cards.style.height = "360px"
@@ -545,15 +574,10 @@ wishlist.onclick = function () {
           cards.style.borderRadius = "20px"
           cards.style.position = "relative";
 
-          // // Redirect to product_show.html with ID
-          // let link = document.createElement("a");
-          // link.href = `./product_show.html?id=${product.id}`;
-          // link.style.textDecoration = "none";
-          // link.style.color = "inherit";
 
 
           let p_name = document.createElement("p")
-          p_name.innerHTML = product.name
+          p_name.innerHTML = product.product_name
           p_name.style.fontWeight = "bold"
           p_name.style.fontSize = "16px"
           p_name.style.padding = "5px 0px 0px 10px"
@@ -563,7 +587,7 @@ wishlist.onclick = function () {
           p_image.style.width = "110px"
           p_image.style.margin = "0px"
           p_image.style.marginLeft = "70px"
-          p_image.src = product.image
+          p_image.src = product.image_url
 
           let p_brand = document.createElement("p")
           p_brand.innerHTML = product.brand
@@ -572,7 +596,7 @@ wishlist.onclick = function () {
 
 
           let p_price = document.createElement("p")
-          p_price.innerHTML = product.price
+          p_price.innerHTML = `₹${product.price}`
           p_price.style.textAlign = "center"
           p_price.style.margin = "0px"
           p_price.style.fontSize = "20px"
@@ -586,41 +610,84 @@ wishlist.onclick = function () {
           p_size.style.margin = "0px"
 
 
+          // Wishlist button
           let wishlist = document.createElement("div");
-          wishlist.textContent = "♡";
-          wishlist.style.borderRadius = "50%";
-          wishlist.style.backgroundColor = "white";
-          wishlist.style.fontSize = "30px";
+          wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier"> 
+        <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+        fill="#d2d0d0"></path> 
+    </g>
+</svg>`;
+
           wishlist.style.textAlign = "center";
-          wishlist.style.width = "40px";
-          wishlist.style.height = "40px";
-          wishlist.style.lineHeight = "40px"; // Center the heart
+          wishlist.style.width = "25px";
+          wishlist.style.height = "25px";
           wishlist.style.cursor = "pointer";
           wishlist.style.display = "inline-block";
-
-          // wishlist.style.marginTop = "10px";
-          wishlist.style.boxSizing = "borderbox";
           wishlist.style.position = "absolute";
+          wishlist.style.right = "7px";
+          wishlist.style.bottom = "17px";
 
-          wishlist.style.right = "5px";
-          wishlist.style.bottom = "10px";
+          document.body.appendChild(wishlist);
 
-
-
-          // Toggle Heart Color on Click
           wishlist.onclick = function () {
-            if (wishlist.textContent === "♡") {
-              wishlist.textContent = "❤️";
-              wishlist.style.fontSize = "19px";
+            let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+            let isActive = wishlist.getAttribute("data-active") === "true";
+
+            if (!isActive) {
+              if (wishlistItems.length >= 4) {
+                alert("Your wishlist is full! Remove an item before adding another.");
+                return;
+              }
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#f10404"></path> 
+            </g>
+        </svg>`;
+              wishlist.setAttribute("data-active", "true");
+              wishlistItems.push(product);
             } else {
-              wishlist.textContent = "♡";
-              wishlist.style.fontSize = "30px";
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#d2d0d0"></path> 
+            </g>
+        </svg>`;
+              wishlist.setAttribute("data-active", "false");
+              wishlistItems = wishlistItems.filter(item => item.id !== product.id);
             }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
           };
 
+          // Cart button
           let add_to_cart = document.createElement("div");
-          add_to_cart.innerHTML = "🛒 Add to cart";
-          add_to_cart.style.backgroundColor = "white";
+
+          let isInCart = false; // Assume the product is not in the cart
+          for (let item of cartItems) {
+            if (item.id === product.id) {
+              isInCart = true; // If the product is found in the cart, set it to true
+              break;
+            }
+          }
+
+          // Set button text
+          if (isInCart) {
+            add_to_cart.innerHTML = "✅ Added";
+            add_to_cart.style.backgroundColor = "green"; // Green means already added
+            add_to_cart.style.color = "white"; // White text on green
+          } else {
+            add_to_cart.innerHTML = "🛒 Add to cart";
+            add_to_cart.style.backgroundColor = "white"; // White means not yet added
+            add_to_cart.style.color = "black"; // Black text on white
+          }
           add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
           add_to_cart.style.textAlign = "center";
           add_to_cart.style.width = "100px";
@@ -631,22 +698,27 @@ wishlist.onclick = function () {
           add_to_cart.style.fontSize = "12px";
           add_to_cart.style.borderRadius = "8px";
 
-          // Toggle "Add to Cart" Effect
           add_to_cart.onclick = function () {
             if (add_to_cart.innerHTML.includes("🛒")) {
+              if (cartItems.length >= 4) {
+              alert("Your cart is full! Remove an item before adding another.");
+              return;
+            }
               add_to_cart.innerHTML = "✅ Added";
               add_to_cart.style.backgroundColor = "green";
               add_to_cart.style.color = "white";
+              cartItems.push(product);
             } else {
               add_to_cart.innerHTML = "🛒 Add to cart";
               add_to_cart.style.backgroundColor = "white";
               add_to_cart.style.color = "black";
+              cartItems = cartItems.filter(item => item.id !== product.id);
             }
+            localStorage.setItem("cart", JSON.stringify(cartItems));
           };
 
-          // Wrap the entire card inside the link
-          // link.append(cards);
-          sliding_products_men.append(cards)
+
+          sliding_products_men.append(cards);
           cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
 
         }
@@ -682,7 +754,7 @@ wishlist.onclick = function () {
 
 
           let p_name = document.createElement("p")
-          p_name.innerHTML = product.name
+          p_name.innerHTML = product.product_name
           p_name.style.fontWeight = "bold"
           p_name.style.fontSize = "16px"
           p_name.style.padding = "5px 0px 0px 10px"
@@ -692,7 +764,7 @@ wishlist.onclick = function () {
           p_image.style.width = "110px"
           p_image.style.margin = "0px"
           p_image.style.marginLeft = "70px"
-          p_image.src = product.image
+          p_image.src = product.image_url
 
           let p_brand = document.createElement("p")
           p_brand.innerHTML = product.brand
@@ -701,7 +773,7 @@ wishlist.onclick = function () {
 
 
           let p_price = document.createElement("p")
-          p_price.innerHTML = product.price
+          p_price.innerHTML = `₹${product.price}`
           p_price.style.textAlign = "center"
           p_price.style.margin = "0px"
           p_price.style.fontSize = "20px"
@@ -715,41 +787,86 @@ wishlist.onclick = function () {
           p_size.style.margin = "0px"
 
 
+          // Wishlist button
           let wishlist = document.createElement("div");
-          wishlist.textContent = "♡";
-          wishlist.style.borderRadius = "50%";
-          wishlist.style.backgroundColor = "white";
-          wishlist.style.fontSize = "30px";
+          wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier"> 
+        <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+        fill="#d2d0d0"></path> 
+    </g>
+</svg>`;
+
           wishlist.style.textAlign = "center";
-          wishlist.style.width = "40px";
-          wishlist.style.height = "40px";
-          wishlist.style.lineHeight = "40px"; // Center the heart
+          wishlist.style.width = "25px";
+          wishlist.style.height = "25px";
           wishlist.style.cursor = "pointer";
           wishlist.style.display = "inline-block";
-
-          // wishlist.style.marginTop = "10px";
-          wishlist.style.boxSizing = "borderbox";
           wishlist.style.position = "absolute";
+          wishlist.style.right = "7px";
+          wishlist.style.bottom = "17px";
 
-          wishlist.style.right = "5px";
-          wishlist.style.bottom = "10px";
+          document.body.appendChild(wishlist);
 
-
-
-          // Toggle Heart Color on Click
           wishlist.onclick = function () {
-            if (wishlist.textContent === "♡") {
-              wishlist.textContent = "❤️";
-              wishlist.style.fontSize = "19px";
+            let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+            let isActive = wishlist.getAttribute("data-active") === "true";
+
+            if (!isActive) {
+
+              if (wishlistItems.length >= 4) {
+                alert("Your wishlist is full! Remove an item before adding another.");
+                return;
+              }
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#f10404"></path> 
+            </g>
+        </svg>`;
+              wishlist.setAttribute("data-active", "true");
+              wishlistItems.push(product);
             } else {
-              wishlist.textContent = "♡";
-              wishlist.style.fontSize = "30px";
+              wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#d2d0d0"></path> 
+            </g>
+        </svg>`;
+              wishlist.setAttribute("data-active", "false");
+              wishlistItems = wishlistItems.filter(item => item.id !== product.id);
+
             }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
           };
 
+          // Cart button
           let add_to_cart = document.createElement("div");
-          add_to_cart.innerHTML = "🛒 Add to cart";
-          add_to_cart.style.backgroundColor = "white";
+
+          let isInCart = false; // Assume the product is not in the cart
+          for (let item of cartItems) {
+            if (item.id === product.id) {
+              isInCart = true; // If the product is found in the cart, set it to true
+              break;
+            }
+          }
+
+          // Set button text
+          if (isInCart) {
+            add_to_cart.innerHTML = "✅ Added";
+            add_to_cart.style.backgroundColor = "green"; // Green means already added
+            add_to_cart.style.color = "white"; // White text on green
+          } else {
+            add_to_cart.innerHTML = "🛒 Add to cart";
+            add_to_cart.style.backgroundColor = "white"; // White means not yet added
+            add_to_cart.style.color = "black"; // Black text on white
+          }
           add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
           add_to_cart.style.textAlign = "center";
           add_to_cart.style.width = "100px";
@@ -760,26 +877,29 @@ wishlist.onclick = function () {
           add_to_cart.style.fontSize = "12px";
           add_to_cart.style.borderRadius = "8px";
 
-          // Toggle "Add to Cart" Effect
           add_to_cart.onclick = function () {
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
             if (add_to_cart.innerHTML.includes("🛒")) {
+              if (cartItems.length >= 4) {
+                alert("Your cart is full! Remove an item before adding another.");
+                return;
+              }
               add_to_cart.innerHTML = "✅ Added";
               add_to_cart.style.backgroundColor = "green";
               add_to_cart.style.color = "white";
+              cartItems.push(product);
             } else {
               add_to_cart.innerHTML = "🛒 Add to cart";
               add_to_cart.style.backgroundColor = "white";
               add_to_cart.style.color = "black";
+              cartItems = cartItems.filter(item => item.id !== product.id);
             }
+            localStorage.setItem("cart", JSON.stringify(cartItems));
           };
 
-          // Wrap the entire card inside the link
-          // link.append(cards);
-          sliding_products_women.append(cards)
+          sliding_products_women.append(cards);
           cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
-
         }
-
       })
       .catch(() => {
         sliding_products_women.innerHTML = "api data isnt fetched"
@@ -787,21 +907,21 @@ wishlist.onclick = function () {
       })
 
 
-    let profile_button = document.getElementById("profile_div")
-    let profile_container = document.getElementById("profile_container")
-    profile_button.addEventListener("click", () => {
-      profile_container.style.display = "inline-block"
-    })
+    // let profile_button = document.getElementById("profile_div")
+    // let profile_container = document.getElementById("profile_container")
+    // profile_button.addEventListener("click", () => {
+    //   profile_container.style.display = "inline-block"
+    // })
 
 
 
 
 
     // cart openeing function
-    cart_open = document.getElementById("cart_div")
-    cart_open.addEventListener("click", () => {
-      location.href = "./cart.html";
-    })
+    // cart_open = document.getElementById("cart_div")
+    // cart_open.addEventListener("click", () => {
+    //   location.href = "./cart.html";
+    // })
   </script>
 
 </body>

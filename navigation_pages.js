@@ -1,3 +1,8 @@
 function to_cart_page(){
-    location.assign("./cart.html")
+    location.href = "./cart.html"
+}
+
+
+function to_wishlist_page(){
+    location.href = "./wishlist.html"
 }

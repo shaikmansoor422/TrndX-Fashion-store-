@@ -42,7 +42,7 @@
       bottom: 5px;
       display: flex;
       justify-content: space-around;
-      background: linear-gradient(to right, rgb(11, 153, 168), rgb(128, 2, 2));
+      background: linear-gradient(to right, rgb(164, 3, 239), rgb(57, 1, 69));
       padding: 5px;
     }
 
@@ -56,12 +56,12 @@
     }
 
     #buy_now {
-      border: 0.1px solid white;
+    border: none;
       height: 50px;
       width: 100px;
       color: white;
       font-weight: bolder;
-      background: linear-gradient(to right, rgb(11, 153, 168), rgb(128, 2, 2));
+      background: linear-gradient(to right, rgb(164, 3, 239), rgb(57, 1, 69));
       border-radius: 40px;
     }
   </style>
@@ -85,14 +85,20 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      let wishlist_Items = JSON.parse(localStorage.getItem("wishlist")) || [];
       let body = document.getElementById("body")
-      if (cartItems.length === 0) {
-        body.innerHTML = "<h3 style='text-align: center; padding: 20px;'>Your cart is empty</h3>";
+      if (wishlist_Items.length === 0) {
+        body.innerHTML = "<h3 style='text-align: center; padding: 20px;'>Your wishlist is empty</h3>";
+        return;
+      }
+      else if(wishlist_Items.length > 3) {
+        body.innerHTML = "<h3 style='text-align: center; padding: 20px;'>Your wishlist is Full</h3>";
         return;
       }
 
-      cartItems.forEach((product) => {
+      else{
+
+      wishlist_Items.forEach((product) => {
         let cards = document.createElement("div")
         cards.style.height = "360px"
         cards.style.width = "230px"
@@ -145,16 +151,16 @@
 
 
         function removeFromCart(productId) {
-          let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+          let wishlist_Items = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-          for (let i = 0; i < cartItems.length; i++) {
-            if (cartItems[i].id === product.id) {
-              cartItems.splice(i, 1);
+          for (let i = 0; i < wishlist_Items.length; i++) {
+            if (wishlist_Items[i].id === product.id) {
+              wishlist_Items.splice(i, 1);
               break;
             }
           }
 
-          localStorage.setItem("cart", JSON.stringify(cartItems));
+          localStorage.setItem("cart", JSON.stringify(wishlist_Items));
           location.reload();
         }
 
@@ -168,9 +174,11 @@
         cards.appendChild(remove);
 
       });
+
+    }
       let total_Price = document.getElementById("total_price")
       let price_sum = 0
-      for (let product of cartItems) {
+      for (let product of wishlist_Items) {
         price_sum += parseFloat(product.price)
       }
       total_Price.innerHTML = `Total Price :${price_sum.toFixed(2)}`
