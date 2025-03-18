@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Men styling</title>
+    <title>Women styling</title>
     <link rel="stylesheet" href="./style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -13,15 +13,34 @@
         crossorigin="anonymous"></script>
 
     <style>
-        #men_products_container {
+        *{
+            box-sizing: border-box;
+        }
+        .navbar{
+            position:fixed;
+            top: 0px;
+            z-index: 5;
+        }
+        #fav_count,
+    #cart_count {
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      margin-left: 17px;
+      border-radius: 10px;
+      background-color: rgb(134, 190, 250);
+      font-size: 8px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+        #women_products_container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* Centers items horizontally */
             gap: 10px;
             width: 100%;
-            padding: 10px;
-            margin: auto;
+            margin: 10px auto;
         }
 
         @media screen and (min-width: 600px) and (max-width: 3000px) {
@@ -36,152 +55,129 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar" style="background-color: rgb(237, 237, 237); width: 100%">
-        <div class="container-fluid">
-            <div id="logo_div">
-                <a href=""><img src="./images/White Black Minimalist Brand Logo (1).png" alt=""
-                        style="height: 50px; width: 80px" /></a><a class="navbar-brand" href=""></a>
-            </div>
+   <!-- Navbar -->
+   <nav class="navbar " style="background-color: rgb(237, 237, 237);width: 100%;">
+    <div class="container-fluid">
+      <div id="logo_div"><a href="./index.html"><img src="./images/White Black Minimalist Brand Logo (1).png" alt=""
+            style="height: 50px;width: 80px;"></a><a class="navbar-brand" href=""></a></div>
 
-            <div id="svg_div_container">
-                <div id="heart_div" class="ml-auto">
-                    <svg id="fav_heart" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z"
-                                fill="#fc0303"></path>
-                        </g>
-                    </svg>
-                </div>
-                <div id="cart_div">
-                    <svg id="cart_svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M11.5 7L13.5 9M13.5 9L15.5 7M13.5 9V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </div>
 
-                <div id="profile_div">
-                    <svg id="profile_svg" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <title>profile_round [#1342]</title>
-                            <desc>Created with Sketch.</desc>
-                            <defs></defs>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -2159.000000)"
-                                    fill="#000000">
-                                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                                        <path
-                                            d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598"
-                                            id="profile_round-[#1342]"></path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-            </div>
+      <div id="svg_div_container">
+        <div id="heart_div" class="ml-auto" onclick=to_wishlist_page()>
+          <div id="fav_count">0</div><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z"
+                fill="#fc0303"></path>
+            </g>
+          </svg>
         </div>
-    </nav>
+        <div id="cart_div" onclick=to_cart_page()>
+          <div id="cart_count">0</div><svg id="cart_svg" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M21 5L19 12H7.37671M20 16H8L6 3H3M11.5 7L13.5 9M13.5 9L15.5 7M13.5 9V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+
+        </div>
+
+
+ 
+  </nav>
     <div>
-        <h3 style="text-align:left; margin-left: 5%; color: gray;">Women's Elegance</h3>
+        <h3 style="text-align:left; margin:70px 5% 0px; color: gray;">Women Elegance</h3>
     </div>
-    <div id="men_products_container"></div>
+    <div id="women_products_container"></div>
     <!-- Footer of the page -->
-<footer id="footer">
-    <div class="touch">Keep in touch</div>
-    <div  id="keep_in_touch">
-      <p class="deals">Get exclusive fashion deals straight to your phone!</p>
-      <form action="" id="kit" >
-        <input type="text" name="" id="" placeholder="Name"><br>
-        <input type="tel" name="" id="" placeholder="Phone number"><br>
-        <input type="submit" name="" id="" style="width: 100px; background-color: rgb(52, 125, 168); border: none; color: white;">
-      </form>
-    </div>
-    <div id="contact_container">
-      <p><a href="https://github.com/shaikmansoor422" target="_blank"><svg id="git" fill="#f7f7f7" viewBox="0 0 1920 1920"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                      <path
-                          d="M1821.63 637.76c0-130.027-43.627-236.373-116.054-319.68 11.627-30.187 50.347-151.36-11.2-315.307 0 0-94.72-32-310.4 122.134-90.133-26.454-186.773-39.68-282.773-40.107-96 .427-192.64 13.653-282.667 40.107C602.749-29.227 507.923 2.773 507.923 2.773c-61.547 163.947-22.72 285.12-11.094 315.307-72.32 83.307-116.266 189.653-116.266 319.68 0 456.533 263.68 558.72 514.453 588.8 0 0-180.267 111.68-180.267 299.413-64.32 30.507-336.533 123.947-437.333-58.133 0 0-59.627-114.347-173.013-122.773 0 0-110.294-1.494-7.787 72.426 0 0 74.027 36.694 125.44 174.294 0 0 57.173 289.92 489.067 159.68 4.373 2.24 1.6 140.266 1.6 168.533h777.173s1.28-277.013 1.28-365.12c0-216.64-144.64-292.48-185.28-329.28 251.627-29.44 515.733-130.133 515.733-587.84"
-                          fill-rule="evenodd"></path>
-                  </g>
-              </svg></a></p>
-      <p><a href="https://www.linkedin.com/in/shaik-mansoor422/" target="_blank"><svg id="linked" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                      <path
-                          d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"
-                          fill="#ffffff"></path>
-                      <path
-                          d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z"
-                          fill="#ffffff"></path>
-                      <path
-                          d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z"
-                          fill="#ffffff"></path>
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
-                          fill="#ffffff"></path>
-                  </g>
-              </svg></a></p>
-      <p><a href="https://www.instagram.com/its.mansoor._?igsh=MWJ1eDd4eXpvY2VsMQ==" target="_blank"><svg id="insta" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
-                          fill="#f5f5f5"></path>
-                      <path
-                          d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
-                          fill="#f5f5f5"></path>
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
-                          fill="#f5f5f5"></path>
-                  </g>
-              </svg></a></p>
-      <p> <a href="tel:9494022265" target="_blank"><svg id="tel" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                      <path
-                          d="M21 7V3M21 3H17M21 3L15 9M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
-                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                  </g>
-              </svg></a></p>
-      <p><a href="mailto:skmansoor422@gmail.com" target="_blank"><svg id="mail" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                      <path
-                          d="M4 18L9 12M20 18L15 12M3 8L10.225 12.8166C10.8665 13.2443 11.1872 13.4582 11.5339 13.5412C11.8403 13.6147 12.1597 13.6147 12.4661 13.5412C12.8128 13.4582 13.1335 13.2443 13.775 12.8166L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
-                          stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      </path>
-                  </g>
-              </svg></a></p>
-    </div>   
-    <div id="designer" class="type_text" style="color: white; text-align: center; font-size: 15px;">Designed and developed by <strong>Mansoor</strong> </div>
-    <div class="type_text" style="color: white; text-align: center; font-size: 12px;">(Design. Code. Innovate. Repeat.  &#128521;)</div>
-  
-    </div>     
-  </footer>
+    <footer id="footer" style="height: auto;"> 
+        <div id="contact_container">
+            <p><a href="https://github.com/shaikmansoor422" target="_blank"><svg id="git" fill="#f7f7f7"
+                        viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M1821.63 637.76c0-130.027-43.627-236.373-116.054-319.68 11.627-30.187 50.347-151.36-11.2-315.307 0 0-94.72-32-310.4 122.134-90.133-26.454-186.773-39.68-282.773-40.107-96 .427-192.64 13.653-282.667 40.107C602.749-29.227 507.923 2.773 507.923 2.773c-61.547 163.947-22.72 285.12-11.094 315.307-72.32 83.307-116.266 189.653-116.266 319.68 0 456.533 263.68 558.72 514.453 588.8 0 0-180.267 111.68-180.267 299.413-64.32 30.507-336.533 123.947-437.333-58.133 0 0-59.627-114.347-173.013-122.773 0 0-110.294-1.494-7.787 72.426 0 0 74.027 36.694 125.44 174.294 0 0 57.173 289.92 489.067 159.68 4.373 2.24 1.6 140.266 1.6 168.533h777.173s1.28-277.013 1.28-365.12c0-216.64-144.64-292.48-185.28-329.28 251.627-29.44 515.733-130.133 515.733-587.84"
+                                fill-rule="evenodd"></path>
+                        </g>
+                    </svg></a></p>
+            <p><a href="https://www.linkedin.com/in/shaik-mansoor422/" target="_blank"><svg id="linked"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"
+                                fill="#ffffff"></path>
+                            <path
+                                d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z"
+                                fill="#ffffff"></path>
+                            <path
+                                d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z"
+                                fill="#ffffff"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
+                                fill="#ffffff"></path>
+                        </g>
+                    </svg></a></p>
+            <p><a href="https://www.instagram.com/its.mansoor._?igsh=MWJ1eDd4eXpvY2VsMQ==" target="_blank"><svg
+                        id="insta" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                                fill="#f5f5f5"></path>
+                            <path
+                                d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                                fill="#f5f5f5"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                                fill="#f5f5f5"></path>
+                        </g>
+                    </svg></a></p>
+            <p> <a href="tel:9494022265" target="_blank"><svg id="tel" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M21 7V3M21 3H17M21 3L15 9M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
+                                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </g>
+                    </svg></a></p>
+            <p><a href="mailto:skmansoor422@gmail.com" target="_blank"><svg id="mail" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M4 18L9 12M20 18L15 12M3 8L10.225 12.8166C10.8665 13.2443 11.1872 13.4582 11.5339 13.5412C11.8403 13.6147 12.1597 13.6147 12.4661 13.5412C12.8128 13.4582 13.1335 13.2443 13.775 12.8166L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
+                                stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </g>
+                    </svg></a></p>
+        </div>
+        <div id="designer" class="type_text" style="color: white; text-align: center; font-size: 15px;">Designed and
+            developed by <strong>Mansoor</strong> </div>
+        <div class="type_text" style="color: white; text-align: center; font-size: 12px;">(Design. Code. Innovate.
+            Repeat. &#128521;)</div>
+
+        </div>
+    </footer>
     <script>
-        products_men = document.getElementById("men_products_container");
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+        products_women = document.getElementById("women_products_container");
         fetch("https://67b188773fc4eef538ea0385.mockapi.io/women_products")
             .then((response) => {
                 return response.json();
@@ -190,16 +186,17 @@
                 for (let product of data) {
                     let cards = document.createElement("div");
 
-                    cards.style.height = "250px";
+                    cards.style.height = "260px";
                     cards.style.width = "140px";
                     cards.style.flex = "0 0 auto";
                     cards.style.boxShadow = "0px 0px 6px 2px grey";
                     cards.style.borderRadius = "10px";
                     cards.style.padding = "8px";
                     cards.style.margin = "5px";
+                    cards.style.position = "relative";
 
                     let p_name = document.createElement("p");
-                    p_name.innerHTML = product.name;
+                    p_name.innerHTML = product.product_name;
                     p_name.style.fontWeight = "bold";
                     p_name.style.fontSize = "12px";
                     p_name.style.padding = "5px 0px 0px 5px";
@@ -209,7 +206,7 @@
                     p_image.style.width = "60px";
                     p_image.style.margin = "0 auto";
                     p_image.style.display = "block";
-                    p_image.src = product.image;
+                    p_image.src = product.image_url;
 
                     let p_brand = document.createElement("p");
                     p_brand.innerHTML = `Brand: ${product.brand}`;
@@ -230,18 +227,171 @@
                     p_size.style.textAlign = "center";
                     p_size.style.fontSize = "9px";
 
-                    cards.appendChild(p_name);
-                    cards.appendChild(p_image);
-                    cards.appendChild(p_brand);
-                    cards.appendChild(p_price);
-                    cards.appendChild(p_size);
+                    // Wishlist button
+                    let wishlist = document.createElement("div");
+                    wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+           <g id="SVGRepo_iconCarrier"> 
+           <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+           fill="#d2d0d0"></path> 
+           </g>
+           </svg>`;
+                    wishlist.style.textAlign = "center";
+                    wishlist.style.width = "10px";
+                    wishlist.style.height = "10px";
+                    wishlist.style.cursor = "pointer";
+                    wishlist.style.display = "inline-block";
+                    wishlist.style.position = "absolute";
+                    wishlist.style.right = "8px";
+                    wishlist.style.bottom = "16px";
 
-                    products_men.append(cards);
+                    let isInWishlist = false; // Assume the product is not in the wishlist
+                    for (let item of wishlistItems) {
+                        if (item.id === product.id) {
+                            isInWishlist = true; // If the product is found in the wishlist, set it to true
+                            break;
+                        }
+                    }
+                    if (isInWishlist) {
+                        wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier"> 
+            <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+            fill="#f10404"></path> 
+            </g>
+            </svg>`;
+                    } else {
+                        wishlist.innerHTML = wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier"> 
+            <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+            fill="#d2d0d0"></path> 
+            </g>
+            </svg>`;
+                    }
+
+                    // calling ffunctions to add products to the wishlist
+                    wishlist.onclick = function () {
+                        Addproducts_to_wishlist(wishlist, product)
+                    }
+
+
+                    // cart button
+                    let add_to_cart = document.createElement("div");
+                    add_to_cart.style.boxShadow = "0px 0px 5px 1px grey";
+                    add_to_cart.style.textAlign = "center";
+                    add_to_cart.style.width = "60px";
+                    add_to_cart.style.padding = "3px";
+                    add_to_cart.style.cursor = "pointer";
+                    add_to_cart.style.display = "inline-block";
+                    add_to_cart.style.margin = "5px";
+                    add_to_cart.style.fontSize = "8px";
+                    add_to_cart.style.borderRadius = "4px";
+                    add_to_cart.style.position = "absolute"
+                    add_to_cart.style.bottom = "0px"
+                    add_to_cart.style.left = "5px"
+
+                    let isInCart = false; // Assume the product is not in the cart
+                    for (let item of cartItems) {
+                        if (item.id === product.id) {
+                            isInCart = true; // If the product is found in the cart, set it to true
+                            break;
+                        }
+                    }
+                    if (isInCart) {
+                        add_to_cart.innerHTML = "✅ Added";
+                        add_to_cart.style.backgroundColor = "green"; // Green means already added
+                        add_to_cart.style.color = "white"; // White text on green
+                    } else {
+                        add_to_cart.innerHTML = "🛒 Add to cart";
+                        add_to_cart.style.backgroundColor = "white"; // White means not yet added
+                        add_to_cart.style.color = "black"; // Black text on white
+                    }
+
+                    add_to_cart.onclick = function () {
+                        Addproducts_to_cart(add_to_cart, product)
+                    }
+
+                    products_women.append(cards);
+                    cards.append(p_name, p_image, p_brand, p_price, p_size, add_to_cart, wishlist);
                 }
             })
             .catch(() => {
                 products_men.innerHTML = "API data isn't fetched";
             });
+
+
+
+        // Function to add products to the wishlist
+
+        function Addproducts_to_wishlist(wishlist, product) {
+            let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+            let isActive = wishlist.getAttribute("data-active") === "true";
+
+            if (!isActive) {
+                if (wishlistItems.length >= 4) {
+                    alert("Your wishlist is full! Remove an item before adding another.");
+                    return;
+                }
+                wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#f10404"></path> 
+            </g>
+        </svg>`;
+                wishlist.setAttribute("data-active", "true");
+                wishlistItems.push(product);
+            } else {
+                wishlist.innerHTML = `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier"> 
+                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" 
+                fill="#d2d0d0"></path> 
+            </g>
+        </svg>`;
+                wishlist.setAttribute("data-active", "false");
+                wishlistItems = wishlistItems.filter(item => item.id !== product.id);
+            }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+        };
+
+
+
+        // function to add products to the cart
+        function Addproducts_to_cart(add_to_cart, product) {
+            {
+                let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+                if (add_to_cart.innerHTML.includes("🛒")) {
+                    if (cartItems.length >= 4) {
+                        alert("Your cart is full! Remove an item before adding another.");
+                        return;
+                    }
+                    add_to_cart.innerHTML = "✅ Added";
+                    add_to_cart.style.backgroundColor = "green";
+                    add_to_cart.style.color = "white";
+                    cartItems.push(product);
+                } else {
+                    add_to_cart.innerHTML = "🛒 Add to cart";
+                    add_to_cart.style.backgroundColor = "white";
+                    add_to_cart.style.color = "black";
+                    cartItems = cartItems.filter(item => item.id !== product.id);
+                }
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+            };
+        }
+
+
+
+
+
+        //  Navigation links 
+        function to_cart_page() {
+            location.href = "./cart.html"
+            cursor = "pointer"
+        }
+
+        function to_wishlist_page() {
+            location.href = "./wishlist.html"
+        }
     </script>
 </body>
 
