@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="./navigation_pages.js" defer></script>
+      <script src="./cart_fav_count.js" defer></script>
 
     <style>
         * {
@@ -33,7 +35,7 @@
             justify-content: center;
             gap: 10px;
             width: 100%;
-            padding: 10px;
+            padding: 3px;
             margin: 10px auto;
         }
 
@@ -65,13 +67,13 @@
     <!-- Navbar -->
     <nav class="navbar " style="background-color: rgb(237, 237, 237);width: 100%;">
         <div class="container-fluid">
-            <div id="logo_div"><a href=""><img src="./images/White Black Minimalist Brand Logo (1).png" alt=""
+            <div id="logo_div"><a href="./index.html"><img src="./images/White Black Minimalist Brand Logo (1).png" alt=""
                         style="height: 50px;width: 80px;"></a><a class="navbar-brand" href=""></a></div>
 
 
             <div id="svg_div_container">
                 <div id="heart_div" class="ml-auto" onclick=to_wishlist_page()>
-                    <div id="fav_count">0</div><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
+                    <div id="fav_count"></div><svg id="fav_heart" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -83,7 +85,7 @@
                     </svg>
                 </div>
                 <div id="cart_div" onclick=to_cart_page()>
-                    <div id="cart_count">0</div><svg id="cart_svg" viewBox="0 0 24 24" fill="none"
+                    <div id="cart_count"></div><svg id="cart_svg" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -126,16 +128,6 @@
     <div id="men_products_container"></div>
     <!-- Footer of the page -->
     <footer id="footer" style="height: auto;">
-        <!-- <div class="touch">Keep in touch</div>
-        <div id="keep_in_touch">
-            <p class="deals">Get exclusive fashion deals straight to your phone!</p>
-            <form action="" id="kit">
-                <input type="text" name="" id="" placeholder="Name"><br>
-                <input type="tel" name="" id="" placeholder="Phone number"><br>
-                <input type="submit" name="" id=""
-                    style="width: 100px; background-color: rgb(52, 125, 168); border: none; color: white;">
-            </form>
-        </div> -->
         <div id="contact_container">
             <p><a href="https://github.com/shaikmansoor422" target="_blank"><svg id="git" fill="#f7f7f7"
                         viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
@@ -276,8 +268,8 @@
            </g>
            </svg>`;
                     wishlist.style.textAlign = "center";
-                    wishlist.style.width = "10px";
-                    wishlist.style.height = "10px";
+                    wishlist.style.width = "12px";
+                    wishlist.style.height = "12px";
                     wishlist.style.cursor = "pointer";
                     wishlist.style.display = "inline-block";
                     wishlist.style.position = "absolute";
@@ -390,6 +382,7 @@
             }
 
             localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+            products_length();
         };
 
 
@@ -414,23 +407,13 @@
                     cartItems = cartItems.filter(item => item.id !== product.id);
                 }
                 localStorage.setItem("cart", JSON.stringify(cartItems));
+                products_length();
             };
         }
 
 
-
-
-
-        //  Navigation links 
-        function to_cart_page() {
-            location.href = "./cart.html"
-            cursor = "pointer"
-        }
-
-        function to_wishlist_page() {
-            location.href = "./wishlist.html"
-        }
     </script>
 </body>
 
 </html>
+

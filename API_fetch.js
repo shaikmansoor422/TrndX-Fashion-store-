@@ -452,6 +452,7 @@ function Addproducts_to_wishlist(wishlist, product) {
     }
 
     localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+    products_length();
 };
 
 
@@ -476,5 +477,8 @@ function Addproducts_to_cart(add_to_cart, product) {
             cartItems = cartItems.filter(item => item.id !== product.id);
         }
         localStorage.setItem("cart", JSON.stringify(cartItems));
+        products_length();
     };
 }
+
+

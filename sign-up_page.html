@@ -20,7 +20,7 @@
 
             
         }
-        #signup {
+        #signup_page {
             width: 280px;
             margin: 50px auto;
             height: 500px;
@@ -70,11 +70,12 @@
             font-weight: bold
         }
     </style>
+    <script src="./auth.js" type="module" defer></script>
 </head>
 
 <body>
-    <div id="signup">
-        <form action="" id="signed">
+    <div id="signup_page">
+        <form action="" id="sign_up">
             <p style="text-align: end; padding:10px 10px ; color: rgb(113, 5, 123);"><a href="./index.html" style="text-decoration: none; color: white;">X</a></p>
 
             <p id="heading">Create account<p>
@@ -82,21 +83,21 @@
             <input type="email" id="email" placeholder="email-address"><br>
             <label for="pass"></label>
             <input type="password" id="pass" placeholder="password"><br>
-            <input type="submit" name="" value="sign-up" id="submit"
+            <input type="submit" name="" value="Regester" id="submit"
                 style="  width: 100px; height: 35px; font-weight: bolder ; color: rgb(252, 253, 253); "><br>
-            <div id="aha">Already have an account? <a href="./log-in_page.html"> login</a></div>
+            <div id="have_account">Already have an account? <a href="./log-in_page.html"> login</a></div>
         </form>
     </div>
     <script>
 
-        let signed = document.getElementById("signed")
-        signed.addEventListener("submit", () => {
-            location.assign("./log-succ_page.html")
-        })
-        let have_account = document.getElementById("have_account")
-        have_account.addEventListener("click", () => {
-            location.assign("./log-in_page.html")
-        })
+        // let sign_up = document.getElementById("sign_up")
+        // sign_up.addEventListener("submit", () => {
+        //     location.assign("./log-succ_page.html")
+        // })
+        // let ha = document.getElementById("have_account")
+        // have_account.addEventListener("click", () => {
+        //     location.assign("./log-in_page.html")
+        // })
 
     </script>
 </body>

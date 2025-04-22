@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TrndX - User Profile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    #profile-container {
+      max-width: 400px;
+      min-width: 280px;
+      height: 480px;
+      flex: 1 1 auto;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    #profile-header {
+      text-align: center;
+    }
+
+    #profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+
+    }
+
+    #username {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    #user-details {
+      margin-top: 25px;
+    }
+
+    .detail-block {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+    }
+
+    #email-label, #phone-label, #gender-label, #dob-label, #location-label {
+      color: #777;
+      font-weight: 500;
+    }
+
+    #email-value, #phone-value, #gender-value, #dob-value, #location-value {
+      color: #333;
+    }
+
+    #edit-btn {
+      width: 100%;
+      margin-top: 30px;
+      padding: 14px;
+      background-color: #ff6f61;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #edit-btn:hover {
+      background-color: #e75b50;
+    }
+
+    /* Responsive Design
+    @media (max-width: 600px) {
+      #profile-container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      #profile-pic {
+        width: 90px;
+        height: 90px;
+      }
+
+      #username {
+        font-size: 20px;
+      }
+
+      .detail-block {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 15px;
+      }
+
+      .detail-block span:last-child {
+        margin-top: 5px;
+      }
+
+      #edit-btn {
+        font-size: 15px;
+      }
+    } */
+  </style>
+</head>
+<body>
+
+  <div id="profile-container">
+    <div id="profile-header">
+      <img src="./images/main_profile.png" alt="Profile Picture" id="profile-pic">
+      <div id="username">Alex Morgan</div>
+    </div>
+
+    <div id="user-details">
+      <div id="email" class="detail-block">
+        <span id="email-label">Email:</span>
+        <span id="email-value">alex.morgan@example.com</span>
+      </div>
+      <div id="phone" class="detail-block">
+        <span id="phone-label">Phone:</span>
+        <span id="phone-value">+1 234 567 8901</span>
+      </div>
+      <div id="gender" class="detail-block">
+        <span id="gender-label">Gender:</span>
+        <span id="gender-value">Female</span>
+      </div>
+      <div id="dob" class="detail-block">
+        <span id="dob-label">Date of Birth:</span>
+        <span id="dob-value">March 10, 1995</span>
+      </div>
+      <div id="location" class="detail-block">
+        <span id="location-label">Location:</span>
+        <span id="location-value">New York, USA</span>
+      </div>
+    </div>
+
+    <!-- <button id="edit-btn">Edit Profile</button> -->
+  </div>
+
+</body>
+</html>
