@@ -17,6 +17,8 @@
   <script src="./navigation_pages.js" defer></script>
   <script src="./API_fetch.js" defer></script>
   <script src="./cart_fav_count.js" defer></script>
+  <script src="./search_func.js" defer\
+  ></script>
 
   <style>
     #fav_count,
@@ -130,7 +132,7 @@
     <div><a href="./men.html">Men</a></div>
     <div><a href="./women.html">Women</a></div>
     <div><a href="./kids.html">kids</a></div>
-    <div><input id="searching" type="search"><button id="searching_butt"><svg id="searching_svg" viewBox="0 0 24 24"
+    <div><input id="search_input" type="search" ><button id="searching_butt"><svg id="searching_svg" viewBox="0 0 24 24"
           fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -141,6 +143,8 @@
           </g>
         </svg></button></div>
   </div>
+  <!-- searching products display div -->
+   <div id="results" ></div>
   <!-- Carousel -->
   <div id="carouselExampleCaptions" class="carousel slide w-80  h-70" data-bs-ride="carousel">
     <div class="carousel-indicators">
